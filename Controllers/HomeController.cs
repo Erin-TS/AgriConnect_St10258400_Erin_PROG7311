@@ -23,6 +23,11 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Controllers
             return View();
         }
 
+        public IActionResult unAuthorisedAccess()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
