@@ -1,14 +1,14 @@
 ﻿using AgriConnect_St10258400_Erin_PROG7311.Models;
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace AgriConnect_St10258400_Erin_PROG7311.Data
 {
     public class AppDbContext: DbContext
     {
-        //create and name database
-        public AppDbContext() : base("name=AgriEnergyConnectDB")
-        {
-        }
+
+        public AppDbContext(DbContextOptions<AppDbContext> options)
+           : base(options) { }
+
 
         // setting  the database tables
         public DbSet<UserModel> User { get; set; }
@@ -20,39 +20,28 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Data
         //Configuring tables to what is needed in the database
         //establishes table relationships like one to one or one to many
         //configures the primary keys for each table
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Configure the primary key for the UserModel
-            modelBuilder.Entity<UserModel>()
-                .HasKey(u => u.userId);
-
-            // Configure the primary key for the ProductModel
-            //one to many relationship: farmer to product
-            modelBuilder.Entity<ProductModel>()
-                .HasKey(p => p.productID)
-                .HasRequired(p => p.farmer)
-                .WithMany(f => f.FarmerProducts) // One farmer can have many products
-                .HasForeignKey(p => p.farmerId) // Foreign key in ProductModel
-                .WillCascadeOnDelete(false);
-
-            // Configure the primary key for the EmployeeModel
-            //one to one relationship: user to employee
+            // establishing one to one relationship : user to employee
             modelBuilder.Entity<EmployeeModel>()
-                .HasKey(e => e.employeeId)
-                .HasRequired(e => e.user)
-                .WithOptional(u => u.Employee)
-                .WillCascadeOnDelete(false);
+                .HasOne(e => e.user)
+                .WithOne(u => u.Employee)
+                .HasForeignKey<EmployeeModel>(e => e.userId)
+                .OnDelete(DeleteBehavior.Restrict);
 
-            // Configure the primary key for the FarmerModel
-            //one to one relationship: user to farmer
+            // establishing one to one relationship : user to farmer
             modelBuilder.Entity<FarmerModel>()
-                .HasKey(f => f.farmerId)
-                .HasRequired(f => f.user)
-                .WithOptional(u => u.Farmer)
-                .WillCascadeOnDelete(false); // Prevent cascade delete
-                
+                .HasOne(f => f.user)
+                .WithOne(u => u.Farmer)
+                .HasForeignKey<FarmerModel>(f => f.userId)
+                .OnDelete(DeleteBehavior.Restrict);
 
-            base.OnModelCreating(modelBuilder);
+            //establishing one to many relationship : farmer to product
+            modelBuilder.Entity<ProductModel>()
+                .HasOne(p => p.farmer)
+                .WithMany(f => f.FarmerProducts)
+                .HasForeignKey(p => p.farmerId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

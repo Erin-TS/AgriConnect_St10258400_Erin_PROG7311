@@ -1,3 +1,6 @@
+using AgriConnect_St10258400_Erin_PROG7311.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace AgriConnect_St10258400_Erin_PROG7311
 {
     public class Program
@@ -8,6 +11,10 @@ namespace AgriConnect_St10258400_Erin_PROG7311
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 
             var app = builder.Build();
 
