@@ -40,6 +40,9 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Models
         [DataType(DataType.Date)]
         public DateTime productionDate { get; set; }//Product production date
 
+        [Required(ErrorMessage = "Product image is required")]
+        [FileExtensions(Extensions = "jpg,jpeg,png,gif", ErrorMessage = "Please upload a valid image file (jpg, jpeg, png, gif)")]
+        public byte[] productImage { get; set; }//Product image
 
         [Required]
         public int farmerId { get; set; } //Foreign Key from FarmerModel

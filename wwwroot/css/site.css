@@ -1,8 +1,34 @@
+/* color palette */
 :root {
-    --tangerine: #ff934f;
-    --blue: #b6ddf7;
-    --palegreen: #f1ffe7;
-    --lightgreen: #a9fdac;
+    --atomic-tangerine: #ff934f;
+    --uranian-blue: #b6ddf7;
+    --honeydew: #f1ffe7;
+    --light-green: #a9fdac;
     --emerald: #44cf6c;
 }
 
+/* Responsive layout */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    flex: 1 1 100%;
+    background: var(--honeydew);
+    padding: 20px;
+    border-radius: 12px;
+}
+
+@media (min-width: 768px) {
+    .card {
+        flex: 1 1 48%;
+    }
+}
