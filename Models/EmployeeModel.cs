@@ -13,7 +13,11 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Models
 
         [ForeignKey("userId")]
         public virtual UserModel user { get; set; } // Navigation property - doesn't create column, C# property that lets you directly access the related entity in your code
-        //virtual is lazy loading - only loaded when they are needed, rather than all at once when the page initially loads
+                                                    //virtual is lazy loading - only loaded when they are needed, rather than all at once when the page initially loads
+
+        [Required]
+        [StringLength(10)]
+        public string employeeNumber { get; set; }//Employee number
 
         [Required]
         [StringLength(50, ErrorMessage = "First Employee type cannot be longer than 50 characters")]

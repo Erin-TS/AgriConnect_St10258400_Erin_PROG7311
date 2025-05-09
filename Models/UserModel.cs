@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AgriConnect_St10258400_Erin_PROG7311.Models
 {
@@ -16,6 +17,12 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Models
         [StringLength(70, ErrorMessage = "Last Name cannot be longer than 70 characters")]
         public string userLastName { get; set; }//Last Name
 
+        // not mapped means this property will not be mapped to a column in the database
+        [NotMapped]
+        [RegularExpression(@"^[0-9]{1,10}$", ErrorMessage = "Please enter a valid employee number")]//Employee number must be 10 digits AND only numbers
+        [Required(ErrorMessage = "Employee number is required")] //Employee number is required
+        public string employeeNumber { get; set; }//Employee number
+
 
         [Required(ErrorMessage = "Email is required")]
         [EmailAddress(ErrorMessage = "Invalid Email Address")]
@@ -26,6 +33,13 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Models
         [RegularExpression("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$",
             ErrorMessage = "Password must contain at least one uppercase letter, one lowercase letter, one number and one special character. Password must be a minimun of 8 characters")] //UPERCASE, lowercase, number, special character, MIN LENGTH 8
         public string userPasswordHash { get; set; }//Password
+
+
+
+        [Required(ErrorMessage = "Passwords do not match!")]
+        [NotMapped]
+        [Compare("userPasswordHash", ErrorMessage = "Passwords do not match!")]
+        public string userPasswordConfirm { get; set; }//Confirm Password
 
 
         [Required]
