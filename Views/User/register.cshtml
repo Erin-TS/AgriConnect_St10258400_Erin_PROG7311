@@ -1,5 +1,5 @@
 ﻿@*
-   This is the Login page for agri connet
+   This is the register page for agri connet
 *@
 @{
     ViewData["Title"] = "login";
@@ -9,7 +9,7 @@
 
 <div class="card1">
     <div class="text-center">
-        <h1 class="card-title">Login</h1>
+        <h1 class="card-title">Sign up</h1>
         @if (!string.IsNullOrEmpty(userRole))
         {
             <br />
@@ -21,15 +21,27 @@
         else
         {
             <p class="home-context">
-                Please login into your existing account as a Farmer or employee<br />
+                Please register a new account as employee<br />
 
             </p>
             <br />
             <div class="row-home">
                 <div class="col-md-6-home">
                     <div class="card2-login">
-                        <p class="card-text">Please enter the details of your existing account.</p>
+                        <p class="card-text">Please enter the following details.</p>
                         <form asp-action="UserLogin" method="post" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label class="signUplable">Your Name</label>
+                                <input asp-for="userFirstName" type="text" class="form-control" placeholder="Enter your name" />
+                                <span asp-validation-for="userFirstName" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="signUplable">Your Last Name</label>
+                                <input asp-for="userLastName" type="text" class="form-control" placeholder="Enter your last name" />
+                                <span asp-validation-for="userLastName" class="text-danger"></span>
+                            </div>
+
                             <div class="form-group">
                                 <label class="signUplable">Your Email</label>
                                 <input asp-for="userEmail" type="text" class="form-control" placeholder="Enter your email" />
@@ -37,14 +49,25 @@
                             </div>
 
                             <div class="form-group">
+                                <label class="signUplable">Your Employee Number</label>
+                                <input asp-for="" type="text" class="form-control" placeholder="Enter your employee number" />
+                                <span asp-validation-for="" class="text-danger"></span>
+
+
+                            <div class="form-group">
                                 <label class="signUplable">Password</label>
+                                <input asp-for="userPasswordHash" type="password" class="form-control" placeholder="Enter your Password" />
+                                <span asp-validation-for="userPasswordHash" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="signUplable">Confirm Password</label>
                                 <input asp-for="userPasswordHash" type="password" class="form-control" placeholder="Enter your Password" />
                                 <span asp-validation-for="userPasswordHash" class="text-danger"></span>
                             </div>
 
                             <div class="button-container">
                                 <div class="form-group">
-                                    <button type="submit" class="btn-submitClaim-home">Login</button>
+                                    <button type="submit" class="btn-submitClaim-home">Sign Up</button>
                                 </div>
                             </div>
                         </form>

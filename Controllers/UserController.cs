@@ -8,5 +8,10 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Controllers
         {
             return View();
         }
+
+        public IActionResult register()
+        {
+            return View();
+        }
     }
 }
