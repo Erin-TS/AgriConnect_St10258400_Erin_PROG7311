@@ -3,7 +3,7 @@
 *@
 @{
     ViewData["Title"] = "login";
-    var userRole = Context.Session.GetString("UserRole");
+    var userRole = Context?.Session?.GetString("UserRole");
 }
 @model UserModel
 

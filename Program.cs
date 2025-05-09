@@ -1,5 +1,6 @@
 using AgriConnect_St10258400_Erin_PROG7311.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace AgriConnect_St10258400_Erin_PROG7311
 {
@@ -11,7 +12,13 @@ namespace AgriConnect_St10258400_Erin_PROG7311
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-
+            builder.Services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30); // Set session timeout to 30 minutes
+                options.Cookie.HttpOnly = true; // Set the cookie to be HTTP-only
+                options.Cookie.IsEssential = true; // Make the session cookie essential
+            });
+            builder.Services.AddHttpContextAccessor();
             builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
@@ -26,11 +33,12 @@ namespace AgriConnect_St10258400_Erin_PROG7311
                 app.UseHsts();
             }
 
+            app.UseSession();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(
