@@ -5,7 +5,7 @@
     ViewData["Title"] = "login";
     var userRole = Context.Session.GetString("UserRole");
 }
-@model UserModel
+@model EmployeeModel
 
 <div class="card1">
     <div class="text-center">
@@ -27,25 +27,25 @@
             <br />
             <div class="row-home">
                 <div class="col-md-6-home">
-                    <div class="card2-login">
+                    <div class="card">
                         <p class="card-text">Please enter the following details.</p>
                         <form asp-action="UserLogin" method="post" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label class="signUplable">Your Name</label>
-                                <input asp-for="userFirstName" type="text" class="form-control" placeholder="Enter your name" />
-                                <span asp-validation-for="userFirstName" class="text-danger"></span>
+                                <input asp-for="employeeFirstName" type="text" class="form-control" placeholder="Enter your name" />
+                                <span asp-validation-for="employeeFirstName" class="text-danger"></span>
                             </div>
 
                             <div class="form-group">
                                 <label class="signUplable">Your Last Name</label>
-                                <input asp-for="userLastName" type="text" class="form-control" placeholder="Enter your last name" />
-                                <span asp-validation-for="userLastName" class="text-danger"></span>
+                                <input asp-for="employeeLastName" type="text" class="form-control" placeholder="Enter your last name" />
+                                <span asp-validation-for="employeeLastName" class="text-danger"></span>
                             </div>
 
                             <div class="form-group">
                                 <label class="signUplable">Your Email</label>
-                                <input asp-for="userEmail" type="text" class="form-control" placeholder="Enter your email" />
-                                <span asp-validation-for="userEmail" class="text-danger"></span>
+                                <input asp-for="employeeEmail" type="text" class="form-control" placeholder="Enter your email" />
+                                <span asp-validation-for="employeeEmail" class="text-danger"></span>
                             </div>
 
                             <div class="form-group">
@@ -56,13 +56,13 @@
 
                             <div class="form-group">
                                 <label class="signUplable">Password</label>
-                                <input asp-for="userPasswordHash" type="password" class="form-control" placeholder="Enter your Password" />
-                                <span asp-validation-for="userPasswordHash" class="text-danger"></span>
+                                <input asp-for="employeePasswordHash" type="password" class="form-control" placeholder="Enter your Password" />
+                                <span asp-validation-for="employeePasswordHash" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label class="signUplable">Confirm Password</label>
-                                <input asp-for="userPasswordHash" type="password" class="form-control" placeholder="Enter your Password" />
-                                <span asp-validation-for="userPasswordHash" class="text-danger"></span>
+                                <input asp-for="employeePasswordConfirm" type="password" class="form-control" placeholder="Enter your Password" />
+                                <span asp-validation-for="employeePasswordConfirm" class="text-danger"></span>
                             </div>
 
                             <div class="button-container">

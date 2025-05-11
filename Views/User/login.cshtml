@@ -5,7 +5,7 @@
     ViewData["Title"] = "login";
     var userRole = Context?.Session?.GetString("UserRole");
 }
-@model UserModel
+@model UserLoginModel
 
 <div class="card1">
     <div class="text-center">
@@ -29,22 +29,22 @@
                 <div class="col-md-6-home">
                     <div class="card2-login">
                         <p class="card-text">Please enter the details of your existing account.</p>
-                        <form asp-action="UserLogin" method="post" enctype="multipart/form-data">
+                        <form asp-action="Login" method="post" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label class="signUplable">Your Email</label>
-                                <input asp-for="userEmail" type="text" class="form-control" placeholder="Enter your email" />
-                                <span asp-validation-for="userEmail" class="text-danger"></span>
+                                <input asp-for="UserEmail" type="text" class="form-control" placeholder="Enter your email" />
+                                <span asp-validation-for="UserEmail" class="text-danger"></span>
                             </div>
 
                             <div class="form-group">
-                                <label class="signUplable">Password</label>
-                                <input asp-for="userPasswordHash" type="password" class="form-control" placeholder="Enter your Password" />
-                                <span asp-validation-for="userPasswordHash" class="text-danger"></span>
+                                <label class="">Password</label>
+                                <input asp-for="UserPassword" type="password" class="form-control" placeholder="Enter your Password" />
+                                <span asp-validation-for="UserPassword" class="text-danger"></span>
                             </div>
 
                             <div class="button-container">
                                 <div class="form-group">
-                                    <button type="submit" class="btn-submitClaim-home">Login</button>
+                                    <button type="submit" class="">Login</button>
                                 </div>
                             </div>
                         </form>
