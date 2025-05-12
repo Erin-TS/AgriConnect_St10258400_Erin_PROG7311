@@ -1,19 +1,19 @@
 ﻿using AgriConnect_St10258400_Erin_PROG7311.Data;
 using AgriConnect_St10258400_Erin_PROG7311.Models;
+using AgriConnect_St10258400_Erin_PROG7311.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-//remove logic from controller
+
 namespace AgriConnect_St10258400_Erin_PROG7311.Controllers
 {
     public class UserController : Controller
     {
-        private readonly AppDbContext _context;
-        private readonly PasswordHasher<object> _passwordHasher;
-        public UserController(AppDbContext context)
+        private readonly IUserService _userService;
+        public UserController(IUserService userService)
         {
-            _context = context;
-            _passwordHasher = new PasswordHasher<object>();
+            _userService = userService;
+
         }
 
         [HttpPost]
@@ -21,61 +21,28 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Controllers
         {
             if (ModelState.IsValid)
             {
-                var employeeUser = await _context.Employee
-                    .FirstOrDefaultAsync(e => e.employeeEmail == userLoginModel.UserEmail);
+               var(success, role, fullName) = await _userService.ValidateUserLogin(userLoginModel);
 
-                var farmerUser = await _context.Farmer.
-                    FirstOrDefaultAsync(f => f.farmerEmail == userLoginModel.UserEmail);
-
-
-                // Check if the user is an employee or a farmer
-                if (employeeUser != null)
+                if (success)
                 {
-                    Console.WriteLine($"Employee email found: {employeeUser?.employeeEmail}");
-                    var passwordVerificationResult = _passwordHasher.VerifyHashedPassword(employeeUser, employeeUser.employeePasswordHash, userLoginModel.UserPassword);
-                    Console.WriteLine($"Password verification result: {passwordVerificationResult}"); // Debugging line
-                    Console.WriteLine($"Hashed password: {employeeUser.employeePasswordHash}"); // Debugging line
-                    Console.WriteLine($"User password: {userLoginModel.UserPassword}"); // Debugging line
-                    if (passwordVerificationResult == PasswordVerificationResult.Success)
+                    // Store user information in session
+                    HttpContext.Session.SetString("UserEmail", userLoginModel.UserEmail);
+                    HttpContext.Session.SetString("UserRole", role);
+                    HttpContext.Session.SetString("FullName", fullName);
+
+                    // Redirect to the appropriate page based on the role
+                    if (role == "Employee")
                     {
-                        // Employee login 
-                        HttpContext.Session.SetString("UserRole", "Employee");
-                        HttpContext.Session.SetString("UserFullName", employeeUser.employeeFirstName + " " + employeeUser.employeeLastName);
-                        TempData["SuccessMessage"] = "Registration successful. Please log in.";
-                        // Redirect to employee dashboard 
                         return RedirectToAction("allProducts", "Employee");
-
-                      
                     }
-                    else
+                    else if (role == "Farmer")
                     {
-                        ModelState.AddModelError("", "Invalid email or password.");
-                        return View(userLoginModel);
-                    }
-                }
-                else if (farmerUser != null)
-                {
-                    Console.WriteLine($"Farmer email found: {farmerUser?.farmerEmail}");
-                    var passwordVerificationResult = _passwordHasher.VerifyHashedPassword(farmerUser, farmerUser.farmerPasswordHash, userLoginModel.UserPassword);
-                    if (passwordVerificationResult == PasswordVerificationResult.Failed)
-                    {
-                        ModelState.AddModelError("", "Invalid email or password.");
-                        return View(userLoginModel);
-                    }
-                    else { 
-                        // Farmer login 
-                        HttpContext.Session.SetString("UserRole", "Farmer");
-                        HttpContext.Session.SetString("UserFullName", farmerUser.farmerFirstName + " " + farmerUser.farmerLastName);
-                       
-                        TempData["SuccessMessage"] = "Login successful.";
-                        // Redirect to the product listings page
                         return RedirectToAction("productListings", "Farmer");
                     }
                 }
                 else
                 {
-                    // Invalid login
-                    ModelState.AddModelError("", "Invalid email or password.");
+                    ModelState.AddModelError("", "Invalid password or email. Please try again.");
                 }
             }
 
@@ -97,28 +64,18 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Controllers
         {
             if(ModelState.IsValid)
             {
-                // Registration logic for employees
-                //check if the email already exists
-                var existingEmployee = await _context.Employee
-                    .FirstOrDefaultAsync(e => e.employeeEmail == employee.employeeEmail);
-
-                if (existingEmployee != null)
+                var (success, errorMsg) = await _userService.RegisterEmployee(employee);
+                if (!success)
                 {
-                    ModelState.AddModelError("employeeEmail", "Email already exists.");
+                    ModelState.AddModelError("", errorMsg);
                     return View(employee);
                 }
-                // Hash the password
-                employee.employeePasswordHash = _passwordHasher.HashPassword(employee, employee.employeePasswordHash);
-
-                // Save the employee to the database
-                _context.Employee.Add(employee);
-                await _context.SaveChangesAsync();
 
                 // Redirect to the login page after successful registration
                 TempData["SuccessMessage"] = "Registration successful. Please log in.";
                 return RedirectToAction("login", "User");
             }
-            return View();
+            return View(employee);
         }
 
         public IActionResult Login()

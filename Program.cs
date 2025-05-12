@@ -1,4 +1,8 @@
 using AgriConnect_St10258400_Erin_PROG7311.Data;
+using AgriConnect_St10258400_Erin_PROG7311.Models;
+using AgriConnect_St10258400_Erin_PROG7311.Repositories;
+using AgriConnect_St10258400_Erin_PROG7311.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -19,6 +23,10 @@ namespace AgriConnect_St10258400_Erin_PROG7311
                 options.Cookie.IsEssential = true; // Make the session cookie essential
             });
             builder.Services.AddHttpContextAccessor();
+            builder.Services.AddScoped<IUserService, UserService>();
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
+            builder.Services.AddScoped<IPasswordHasher<EmployeeModel>, PasswordHasher<EmployeeModel>>();
+            builder.Services.AddScoped<IPasswordHasher<FarmerModel>, PasswordHasher<FarmerModel>>();
             builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
