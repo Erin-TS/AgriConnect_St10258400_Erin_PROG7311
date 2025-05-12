@@ -2,7 +2,7 @@
    This is the Login page for agri connet
 *@
 @{
-    ViewData["Title"] = "login";
+    ViewData["Title"] = "Login";
     var userRole = Context?.Session?.GetString("UserRole");
 }
 @model UserLoginModel
@@ -29,7 +29,7 @@
                 <div >
                     <div >
                         <p >Please enter the details of your existing account.</p>
-                        <form asp-action="Login" method="post" enctype="multipart/form-data">
+                        <form asp-controller="User" asp-action="Login" method="post">
                             <div class="form-group">
                                 <label >Your Email</label>
                                 <input asp-for="UserEmail" type="text" class="form-control" placeholder="Enter your email" />
@@ -41,6 +41,8 @@
                                 <input asp-for="UserPassword" type="password" class="form-control" placeholder="Enter your Password" />
                                 <span asp-validation-for="UserPassword" class="text-danger"></span>
                             </div>
+
+
 
                             <div class="button-container">
                                 <div class="form-group">

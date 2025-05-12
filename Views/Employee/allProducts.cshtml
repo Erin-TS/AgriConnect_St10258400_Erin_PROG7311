@@ -51,7 +51,7 @@ else
                 </tr>
             </thead>
             <tbody>
-                    @if (Model != null && Model.Count > 0)
+                    @if (Model != null && Model.Count() > 0)
                     {
                 @foreach (var product in Model)
                 {

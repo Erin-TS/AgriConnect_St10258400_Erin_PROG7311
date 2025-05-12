@@ -17,7 +17,7 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> login(UserLoginModel userLoginModel)
+        public async Task<IActionResult> Login(UserLoginModel userLoginModel)
         {
             if (ModelState.IsValid)
             {
@@ -31,24 +31,31 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Controllers
                 // Check if the user is an employee or a farmer
                 if (employeeUser != null)
                 {
+                    Console.WriteLine($"Employee email found: {employeeUser?.employeeEmail}");
                     var passwordVerificationResult = _passwordHasher.VerifyHashedPassword(employeeUser, employeeUser.employeePasswordHash, userLoginModel.UserPassword);
-                    if (passwordVerificationResult == PasswordVerificationResult.Failed)
+                    Console.WriteLine($"Password verification result: {passwordVerificationResult}"); // Debugging line
+                    Console.WriteLine($"Hashed password: {employeeUser.employeePasswordHash}"); // Debugging line
+                    Console.WriteLine($"User password: {userLoginModel.UserPassword}"); // Debugging line
+                    if (passwordVerificationResult == PasswordVerificationResult.Success)
+                    {
+                        // Employee login 
+                        HttpContext.Session.SetString("UserRole", "Employee");
+                        HttpContext.Session.SetString("UserFullName", employeeUser.employeeFirstName + " " + employeeUser.employeeLastName);
+                        TempData["SuccessMessage"] = "Registration successful. Please log in.";
+                        // Redirect to employee dashboard 
+                        return RedirectToAction("allProducts", "Employee");
+
+                      
+                    }
+                    else
                     {
                         ModelState.AddModelError("", "Invalid email or password.");
                         return View(userLoginModel);
                     }
-                    else
-                    {
-                        // Employee login 
-                        HttpContext.Session.SetString("UserRole", "Employee");
-                        HttpContext.Session.SetString("UserfullName", employeeUser.employeeFirstName + " " + employeeUser.employeeLastName);
-                TempData["SuccessMessage"] = "Registration successful. Please log in.";
-                        // Redirect to employee dashboard 
-                        return RedirectToAction("allProducts", "Employee");
-                    }
                 }
                 else if (farmerUser != null)
                 {
+                    Console.WriteLine($"Farmer email found: {farmerUser?.farmerEmail}");
                     var passwordVerificationResult = _passwordHasher.VerifyHashedPassword(farmerUser, farmerUser.farmerPasswordHash, userLoginModel.UserPassword);
                     if (passwordVerificationResult == PasswordVerificationResult.Failed)
                     {
@@ -58,9 +65,9 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Controllers
                     else { 
                         // Farmer login 
                         HttpContext.Session.SetString("UserRole", "Farmer");
-                        HttpContext.Session.SetString("UserfullName", farmerUser.farmerFirstName + " " + farmerUser.farmerLastName);
+                        HttpContext.Session.SetString("UserFullName", farmerUser.farmerFirstName + " " + farmerUser.farmerLastName);
                        
-                        TempData["SuccessMessage"] = "Registration successful. Please log in.";
+                        TempData["SuccessMessage"] = "Login successful.";
                         // Redirect to the product listings page
                         return RedirectToAction("productListings", "Farmer");
                     }
@@ -76,7 +83,7 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Controllers
             return View(userLoginModel);
         }
 
-        public IActionResult logout()
+        public IActionResult Logout()
         {
             // Clear the session
             HttpContext.Session.Clear();
@@ -86,7 +93,7 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> register(EmployeeModel employee)
+        public async Task<IActionResult> Register(EmployeeModel employee)
         {
             if(ModelState.IsValid)
             {
@@ -114,12 +121,12 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Controllers
             return View();
         }
 
-        public IActionResult login()
+        public IActionResult Login()
         {
             return View();
         }
 
-        public IActionResult register()
+        public IActionResult Register()
         {
             return View();
         }
