@@ -56,7 +56,7 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Controllers
             HttpContext.Session.Clear();
 
             // Redirect to the login page
-            return RedirectToAction("login", "Home");
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
