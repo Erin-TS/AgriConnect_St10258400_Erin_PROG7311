@@ -1,6 +1,18 @@
 ﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+    This page will display only if users dont have permission to access a page
 *@
 @{
 }
-unauth access you do not have access to this page
+
+@{
+    ViewData["Title"] = "Unauthorized Access";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Unauthorized Access</h1>
+            <p>You do not have permission to access this page.</p>
+            <a href="@Url.Action("Index", "Home")" class="btn btn-primary">Go to Home</a>
+        </div>
+    </div>

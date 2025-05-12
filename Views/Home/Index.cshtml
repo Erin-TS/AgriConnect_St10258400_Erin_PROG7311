@@ -2,5 +2,13 @@
     ViewData["Title"] = "Home Page";
 }
 
-Welcome to Agri connect!
-Please login or register
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Welcome to Agri Connect</h1>
+            <p>Your one-stop solution for all agricultural needs.</p>
+            <a href="@Url.Action("Login", "Account")" class="btn btn-primary">Login</a>
+            <a href="@Url.Action("Register", "Account")" class="btn btn-secondary">Register</a>
+        </div>
+    </div>
