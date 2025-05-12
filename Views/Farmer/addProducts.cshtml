@@ -1,6 +1,74 @@
 ﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+   page for farmer to add product to profile
 *@
 @{
 }
-addproducts
+
+@model ProductModel
+@{
+    ViewData["Title"] = "Add Products";
+    var userRole = Context.Session.GetString("UserRole");
+}
+@if (string.IsNullOrEmpty(userRole) || userRole.Equals("Employee"))
+{
+    //display unauhtorised access page
+    <h1 class="card-title">Unauthorised access</h1>
+}
+else
+{
+    <div>
+        <div class="text-center">
+            <h1 >Add Product</h1>
+            <p >
+                Please add a new product<br />
+            </p>
+            <br />
+            <div class="row-home">
+                <div class="col-md-6-home">
+                    <div class="card">
+                        <p class="card-text">Please enter the following details.</p>
+                        <form asp-controller ="Farmer" asp-action="AddProduct" method="post" enctype="multipart/form-data">
+                            <div class="form-group">
+                            <label>Product Name</label>
+                            <input asp-for="productName" type="text" class="form-control" placeholder="Enter your product name" />
+                            <span asp-validation-for="productName" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                            <label>Product Description</label>
+                            <input asp-for="productDescription" type="text" class="form-control" placeholder="Enter your product description" />
+                            <span asp-validation-for="productDescription" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                            <label>Product Category</label>
+                            <input asp-for="productCategory" type="text" class="form-control" placeholder="Enter your product category" />
+                            <span asp-validation-for="productCategory" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                            <label>Production Date</label>
+                            <input asp-for="productionDate" type="date" class="form-control" placeholder="Enter your production date" />
+                            <span asp-validation-for="productionDate" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                            <label>Product Image</label>
+                            <input asp-for="productImage" type="file" class="form-control" />
+                            <span asp-validation-for="productImage" class="text-danger"></span>
+                            </div>
+
+                            <input type="hidden" asp-for="farmerId" value="@Context.Session.GetString("UserId")" />
+
+                            <div class="button-container">
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">Add Product</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
