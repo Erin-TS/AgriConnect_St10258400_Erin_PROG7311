@@ -12,6 +12,8 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Models
         Meat,
         Poultry,
         Fish,
+        Eggs,
+        Honey,
         Nuts,
         Seeds,
         Herbs

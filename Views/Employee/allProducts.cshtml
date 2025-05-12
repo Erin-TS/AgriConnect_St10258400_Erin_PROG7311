@@ -20,6 +20,24 @@ else
 {
     <div class="container">
         <h1>All Products</h1>
+
+        <p>Filters</p>
+        <datalist id="productCategoryList">
+            <option value="Vegetable"></option>
+            <option value="Fruit"></option>
+            <option value="Grain"></option>
+            <option value="Dairy"></option>
+            <option value="Meat"></option>
+            <option value="Poultry"></option>
+            <option value="Fish"></option>
+            <option value="Eggs"></option>
+            <option value="Honey"></option>
+            <option value="Nuts"></option>
+            <option value="Seeds"></option>
+            <option value="Herbs"></option>
+           
+        <a asp-controller="Employee" asp-action="FilterProducts" class="btn btn-primary">Filter Products</a>
+
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -29,10 +47,12 @@ else
                     <th>Product Category</th>
                     <th>Production Date</th>
                     <th>Product Image</th>
-                    <th>Farmer ID</th>
+                    <th>Farmer Name</th>
                 </tr>
             </thead>
             <tbody>
+                    @if (Model != null && Model.Count > 0)
+                    {
                 @foreach (var product in Model)
                 {
                     <tr>
@@ -42,10 +62,15 @@ else
                         <td>@product.productCategory</td>
                         <td>@product.productionDate</td>
                         <td>@product.productImage</td>
-                        <td>@product.farmerId</td>
+                        <td>@product.farmer.farmerFirstName +" "+ @product.farmer.farmerLastName</td>
                     </tr>
                 }
+                    }
+                    else
+                    {
+                        <p>No products found.</p>
+                    }
             </tbody>
         </table>
     </div>
-})
+}
