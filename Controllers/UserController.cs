@@ -3,7 +3,7 @@ using AgriConnect_St10258400_Erin_PROG7311.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-
+//remove logic from controller
 namespace AgriConnect_St10258400_Erin_PROG7311.Controllers
 {
     public class UserController : Controller
