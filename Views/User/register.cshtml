@@ -8,7 +8,7 @@
 @model EmployeeModel
 
 <div >
-    <div class="text-center">
+    <div class="cardContent">
         <h1 >Sign up</h1>
         @if (!string.IsNullOrEmpty(userRole))
         {
@@ -65,10 +65,9 @@
                                 <span asp-validation-for="employeePasswordConfirm" class="text-danger"></span>
                             </div>
 
-                            <div class="button-container">
                                 <div class="form-group">
-                                    <button type="submit">Sign Up</button>
-                                </div>
+                                    <button type="submit" class="btn-primary">Sign Up</button>
+                              
                             </div>
                         </form>
                     </div>
