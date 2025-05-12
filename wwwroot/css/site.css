@@ -1,10 +1,10 @@
 /* color palette */
 :root {
-    --atomic-tangerine: #ff934f;
-    --uranian-blue: #b6ddf7;
-    --honeydew: #f1ffe7;
-    --light-green: #a9fdac;
-    --emerald: #44cf6c;
+    --atomic-tangerine-btn: #ff934f;
+    --uranian-blue-containers: #b6ddf7;
+    --honeydew-bg: #f1ffe7;
+    --light-green-hover: #a9fdac;
+    --emerald-heading: #44cf6c;
 }
 
 /* Responsive layout */
@@ -20,16 +20,27 @@
     gap: 20px;
 }
 
-.card {
-    flex: 1 1 100%;
-    background: white;
-    padding: 20px;
+.cardContent {
+    flex: 1 1 90%;
+    width:90%;
+    background: var(--uranian-blue-containers);
+    padding: 50px;
     border-radius: 12px;
+    text-align:center;
+    font-family: Bahnschrift,sans-serif;
+    
 }
 
 @media (min-width: 768px) {
     .card {
         flex: 1 1 48%;
     }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--honeydew-bg);
+    color: #333;
+    margin:0;
 }
 

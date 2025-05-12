@@ -32,7 +32,7 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Models
 
 
         [Required]
-        public string farmerRole = "Farmer";  // Farmer
+        public string farmerRole { get; set; } = "Farmer";  // Farmer
 
         [Required(ErrorMessage = "Farmer Location is required")]
         public string farmerLocation { get; set; }//Farmer location

@@ -27,6 +27,9 @@ namespace AgriConnect_St10258400_Erin_PROG7311
             builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<IPasswordHasher<EmployeeModel>, PasswordHasher<EmployeeModel>>();
             builder.Services.AddScoped<IPasswordHasher<FarmerModel>, PasswordHasher<FarmerModel>>();
+            builder.Services.AddScoped<IEmployeeService, EmployeeService>();
+            builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+        
             builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 

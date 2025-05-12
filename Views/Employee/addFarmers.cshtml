@@ -7,9 +7,16 @@
 }
 @model FarmerModel
 
+
+@if(TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
 <div class="card1">
     <div class="text-center">
-        <h1 class="card-title">Add Farmer profile</h1>
         @if (string.IsNullOrEmpty(userRole) || userRole.Equals("Farmer"))
         {
             //display unauhtorised access page
@@ -19,6 +26,8 @@
         }
         else
         {
+            <h1 class="card-title">Add Farmer profile</h1>
+
             <p class="home-context">
                 Please register a new  farmer profile<br />
 
@@ -28,36 +37,36 @@
                 <div class="col-md-6-home">
                     <div class="card">
                         <p class="card-text">Please enter the following details.</p>
-                        <form asp-controller ="Employee" asp-action="AddFarmer" method="post">
+                        <form asp-controller ="Employee" asp-action="addFarmers" method="post">
                             <div class="form-group">
-                                <label class="signUplable">Framer Name</label>
-                                <input asp-for="farmerFirstName" type="text" class="form-control" placeholder="Enter your name" />
+                                <label class="signUplable">Farmer Name</label>
+                                <input asp-for="farmerFirstName" type="text" class="form-control" placeholder="Enter farmer name" />
                                 <span asp-validation-for="farmerFirstName" class="text-danger"></span>
                             </div>
 
                             <div class="form-group">
-                                <label class="signUplable">Framer Last Name</label>
-                                <input asp-for="farmerLastName" type="text" class="form-control" placeholder="Enter your last name" />
+                                <label class="signUplable">Farmer Last Name</label>
+                                <input asp-for="farmerLastName" type="text" class="form-control" placeholder="Enter farmer last name" />
                                 <span asp-validation-for="farmerLastName" class="text-danger"></span>
                             </div>
 
                             <div class="form-group">
                                 <label class="signUplable">Farmer Email</label>
-                                <input asp-for="farmerEmail" type="text" class="form-control" placeholder="Enter your email" />
+                                <input asp-for="farmerEmail" type="text" class="form-control" placeholder="Enter farmer email" />
                                 <span asp-validation-for="farmerEmail" class="text-danger"></span>
                             </div>
 
                             <div class="form-group">
                                 <label class="signUplable">Farmer Location</label>
-                                <input asp-for="farmerLocation" type="text" class="form-control" placeholder="Enter your employee number" />
+                                <input asp-for="farmerLocation" type="text" class="form-control" placeholder="Enter farmer location" />
                                 <span asp-validation-for="farmerLocation" class="text-danger"></span>
                             </div>
 
                             <div class="form-group">
-                                <label class="signUplable">Password</label>
-                                //randome pass will be generated
+                                <label class="signUplable">A Password will be automatically generated for a farmer.</label>
+                                
                             </div>
-                        
+                        <input type="hidden" asp-for="farmerRole" value="Farmer"/>
 
                             <div class="button-container">
                                 <div class="form-group">
