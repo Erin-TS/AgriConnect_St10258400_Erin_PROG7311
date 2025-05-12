@@ -7,37 +7,37 @@
 }
 @model UserLoginModel
 
-<div class="card1">
+<div >
     <div class="text-center">
-        <h1 class="card-title">Login</h1>
+        <h1 >Login</h1>
         @if (!string.IsNullOrEmpty(userRole))
         {
             <br />
-            <h3 class="card-subtitle">You are logged in as: @Context.Session.GetString("UserFullName") </h3>
-            <h3 class="card-subtitle">Hello @userRole, @Context.Session.GetString("UserFullName") </h3>
+            <h3 >You are logged in as: @Context.Session.GetString("UserFullName") </h3>
+            <h3 >Hello @userRole, @Context.Session.GetString("UserFullName") </h3>
             <br />
             <a asp-controller="User" asp-action="LogOut" class="btn-danger">Log Out</a>
         }
         else
         {
-            <p class="home-context">
+            <p >
                 Please login into your existing account as a Farmer or employee<br />
 
             </p>
             <br />
-            <div class="row-home">
-                <div class="col-md-6-home">
-                    <div class="card2-login">
-                        <p class="card-text">Please enter the details of your existing account.</p>
+            <div >
+                <div >
+                    <div >
+                        <p >Please enter the details of your existing account.</p>
                         <form asp-action="Login" method="post" enctype="multipart/form-data">
                             <div class="form-group">
-                                <label class="signUplable">Your Email</label>
+                                <label >Your Email</label>
                                 <input asp-for="UserEmail" type="text" class="form-control" placeholder="Enter your email" />
                                 <span asp-validation-for="UserEmail" class="text-danger"></span>
                             </div>
 
                             <div class="form-group">
-                                <label class="">Password</label>
+                                <label>Password</label>
                                 <input asp-for="UserPassword" type="password" class="form-control" placeholder="Enter your Password" />
                                 <span asp-validation-for="UserPassword" class="text-danger"></span>
                             </div>

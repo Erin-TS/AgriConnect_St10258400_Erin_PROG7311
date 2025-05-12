@@ -37,7 +37,7 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Models
 
         [Required(ErrorMessage = "Passwords do not match!")]
         [NotMapped]
-        [Compare("userPasswordHash", ErrorMessage = "Passwords do not match!")]
+        [Compare("employeePasswordHash", ErrorMessage = "Passwords do not match!")]
         public string employeePasswordConfirm { get; set; }//Confirm Password
 
 

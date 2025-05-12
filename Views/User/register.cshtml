@@ -7,67 +7,67 @@
 }
 @model EmployeeModel
 
-<div class="card1">
+<div >
     <div class="text-center">
-        <h1 class="card-title">Sign up</h1>
+        <h1 >Sign up</h1>
         @if (!string.IsNullOrEmpty(userRole))
         {
             <br />
-            <h3 class="card-subtitle">You are logged in as: @Context.Session.GetString("UserFullName") </h3>
-            <h3 class="card-subtitle">Hello @userRole, @Context.Session.GetString("UserFullName") </h3>
+            <h3 >You are logged in as: @Context.Session.GetString("UserFullName") </h3>
+            <h3 >Hello @userRole, @Context.Session.GetString("UserFullName") </h3>
             <br />
             <a asp-controller="User" asp-action="LogOut" class="btn-danger">Log Out</a>
         }
         else
         {
-            <p class="home-context">
+            <p >
                 Please register a new account as employee<br />
 
             </p>
             <br />
-            <div class="row-home">
-                <div class="col-md-6-home">
-                    <div class="card">
-                        <p class="card-text">Please enter the following details.</p>
-                        <form asp-action="UserLogin" method="post" enctype="multipart/form-data">
+            <div>
+                <div >
+                    <div>
+                        <p >Please enter the following details.</p>
+                        <form asp-action="register" method="post" enctype="multipart/form-data">
                             <div class="form-group">
-                                <label class="signUplable">Your Name</label>
+                                <label >Your Name</label>
                                 <input asp-for="employeeFirstName" type="text" class="form-control" placeholder="Enter your name" />
                                 <span asp-validation-for="employeeFirstName" class="text-danger"></span>
                             </div>
 
                             <div class="form-group">
-                                <label class="signUplable">Your Last Name</label>
+                                <label >Your Last Name</label>
                                 <input asp-for="employeeLastName" type="text" class="form-control" placeholder="Enter your last name" />
                                 <span asp-validation-for="employeeLastName" class="text-danger"></span>
                             </div>
 
                             <div class="form-group">
-                                <label class="signUplable">Your Email</label>
+                                <label >Your Email</label>
                                 <input asp-for="employeeEmail" type="text" class="form-control" placeholder="Enter your email" />
                                 <span asp-validation-for="employeeEmail" class="text-danger"></span>
                             </div>
 
                             <div class="form-group">
-                                <label class="signUplable">Your Employee Number</label>
+                                <label >Your Employee Number</label>
                                 <input asp-for="employeeNumber" type="text" class="form-control" placeholder="Enter your employee number" />
                                 <span asp-validation-for="employeeNumber" class="text-danger"></span>
                             </div>
 
                             <div class="form-group">
-                                <label class="signUplable">Password</label>
+                                <label >Password</label>
                                 <input asp-for="employeePasswordHash" type="password" class="form-control" placeholder="Enter your Password" />
                                 <span asp-validation-for="employeePasswordHash" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label class="signUplable">Confirm Password</label>
+                                <label >Confirm Password</label>
                                 <input asp-for="employeePasswordConfirm" type="password" class="form-control" placeholder="Enter your Password" />
                                 <span asp-validation-for="employeePasswordConfirm" class="text-danger"></span>
                             </div>
 
                             <div class="button-container">
                                 <div class="form-group">
-                                    <button type="submit" class="btn-submitClaim-home">Sign Up</button>
+                                    <button type="submit">Sign Up</button>
                                 </div>
                             </div>
                         </form>
