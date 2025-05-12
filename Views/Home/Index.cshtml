@@ -8,7 +8,10 @@
         <div class="col-md-12">
             <h1>Welcome to Agri Connect</h1>
             <p>Your one-stop solution for all agricultural needs.</p>
-            <a href="@Url.Action("Login", "User")" class="btn btn-primary">Login</a>
-            <a href="@Url.Action("Register", "User")" class="btn btn-secondary">Register</a>
+            @if (Context.Session.GetString("UserRole") == null)
+            {
+                <a href="@Url.Action("Login", "User")" class="btn btn-primary">Login</a>
+                <a href="@Url.Action("Register", "User")" class="btn btn-secondary">Register</a>
+            }
         </div>
     </div>
