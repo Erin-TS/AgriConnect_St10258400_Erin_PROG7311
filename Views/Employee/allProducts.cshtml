@@ -35,7 +35,7 @@ else
             <option value="Nuts"></option>
             <option value="Seeds"></option>
             <option value="Herbs"></option>
-           
+          
         <a asp-controller="Employee" asp-action="FilterProducts" class="btn btn-primary">Filter Products</a>
 
         <table class="table table-bordered">
@@ -68,7 +68,9 @@ else
                     }
                     else
                     {
-                        <p>No products found.</p>
+                        <tr>
+                            <td colspan="5">No products found.</td>
+                        </tr>
                     }
             </tbody>
         </table>
