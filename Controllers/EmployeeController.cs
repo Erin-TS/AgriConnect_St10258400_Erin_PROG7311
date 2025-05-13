@@ -27,15 +27,26 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> addFarmers(FarmerModel farmer)
+        public async Task<IActionResult> addFarmers(addFarmerModel addfarmermodel)
         {
 
             if (ModelState.IsValid)
             {
-                var (success, farmerPass) = await _employeeService.addFarmersAsync(farmer);
+               var farmer = new FarmerModel
+               {
+                    farmerFirstName = addfarmermodel.farmerFirstName,
+                    farmerLastName = addfarmermodel.farmerLastName,
+                    farmerEmail = addfarmermodel.farmerEmail,
+                    farmerLocation = addfarmermodel.farmerLocation,
+                    farmerRole = "Farmer"
+               };
+
+                var (success, passsword) = await _employeeService.addFarmersAsync(farmer);
+
                 if (success)
                 {
-                    TempData["SuccessMessage"] = $"Farmer profile added successfully! Password: {farmerPass}";
+                    TempData["SuccessMessage"] = $"Farmer profile added successfully for {farmer.farmerEmail}! Password: {passsword}/n" +
+                        $"All farmer details can be viewed on the ALl farmers page";
                     return RedirectToAction("addFarmers");
                 }
                 else
@@ -45,14 +56,9 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Controllers
             }
             else
             {
-                foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
-                {
-                    ModelState.AddModelError("", error.ErrorMessage);
-
-                }
+                return View(addfarmermodel);
             }
-                // If we reach this point, something went wrong, redisplay the form
-                return View(farmer);
+            return View(addfarmermodel); // Return the view with the model to show validation errors    
         }
 
         public IActionResult allProducts()

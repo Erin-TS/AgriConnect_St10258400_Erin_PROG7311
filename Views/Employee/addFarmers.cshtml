@@ -5,7 +5,7 @@
     ViewData["Title"] = "AddFarmers";
     var userRole = Context.Session.GetString("UserRole");
 }
-@model FarmerModel
+@model addFarmerModel
 
 
 @if(TempData["SuccessMessage"] != null)
@@ -29,7 +29,7 @@
             <h1 class="card-title">Add Farmer profile</h1>
 
             <p class="home-context">
-                Please register a new  farmer profile<br />
+                Please register a new  farmer profile
 
             </p>
             <br />
@@ -37,6 +37,7 @@
                 <div class="col-md-6-home">
                     <div class="card">
                         <p class="card-text">Please enter the following details.</p>
+                        <div asp-validation-summary="All" class="text-danger"></div>
                         <form asp-controller ="Employee" asp-action="addFarmers" method="post">
                             <div class="form-group">
                                 <label class="signUplable">Farmer Name</label>
@@ -66,8 +67,7 @@
                                 <label class="signUplable">A Password will be automatically generated for a farmer.</label>
                                 
                             </div>
-                        <input type="hidden" asp-for="farmerRole" value="Farmer"/>
-
+                       
                             <div class="button-container">
                                 <div class="form-group">
                                     <button type="submit" class="btn-submitClaim-home">Create farmer</button>
