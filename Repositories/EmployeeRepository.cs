@@ -21,5 +21,10 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Repositories
         {
             return await _context.Farmer.FirstOrDefaultAsync(f => f.farmerEmail == email);
         }
+
+        public async Task<List<FarmerModel>> getallFarmersListAsync()
+        {
+            return await _context.Farmer.ToListAsync();
+        }
     }
 }

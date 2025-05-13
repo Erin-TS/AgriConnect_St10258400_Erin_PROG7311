@@ -45,8 +45,9 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Controllers
 
                 if (success)
                 {
-                    TempData["SuccessMessage"] = $"Farmer profile added successfully for {farmer.farmerEmail}! Password: {result}/n" +
-                        $"All farmer details can be viewed on the ALl farmers page";
+                    TempData["SuccessMessage"] = $"Farmer profile added successfully for {farmer.farmerEmail}! Password: {result}" +
+                        Environment.NewLine +
+                        $"All farmer details can be viewed on the all farmers page";
                     return RedirectToAction("addFarmers");
                 }
                 else if (!success)
@@ -68,6 +69,12 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Controllers
         public IActionResult allProducts()
         {
             return View();
+        }
+
+        public async Task<IActionResult> FarmerDetails()
+        {
+            var farmerList = await _employeeService.getallFarmersListAsync();
+            return View(farmerList);
         }
     }
 }

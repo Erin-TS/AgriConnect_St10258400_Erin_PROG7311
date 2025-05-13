@@ -42,6 +42,8 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Services
             }
             string password = new string(passwordChars);
 
+            farmerProfile.farmerPassword = password; // Store the password in the model for the view only, not in the database
+
             // Hash the password
             farmerProfile.farmerPasswordHash = _farPasswordHasher.HashPassword(farmerProfile, password); 
 
@@ -56,6 +58,11 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Services
             {
                 return (false, ex.Message);
             }
+        }
+
+        public async Task<List<FarmerModel>> getallFarmersListAsync()
+        {
+            return await _employeeRepository.getallFarmersListAsync();
         }
     }
 }

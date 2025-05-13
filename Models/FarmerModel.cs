@@ -31,6 +31,8 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Models
         public string farmerPasswordHash { get; set; }//Password
 
 
+        public string farmerPassword { get; set; } //Password for the view only, not stored in the database
+
         [Required]
         public string farmerRole { get; set; } = "Farmer";  // Farmer
 

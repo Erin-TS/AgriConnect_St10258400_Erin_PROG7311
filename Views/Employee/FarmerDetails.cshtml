@@ -1,5 +1,62 @@
 ﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+    this view is used to display the details of all farmers in the databse all in a table
 *@
+
+
 @{
+    ViewData["Title"] = "Farmer Details";
 }
+@model IEnumerable<FarmerModel>
+
+
+@{
+    var userRole = Context.Session.GetString("UserRole");
+}
+
+@if(userRole == null || userRole.Equals("Farmer"))
+{
+    //display unauhtorised access page
+    <h1 class="card-title">Unauthorised access</h1>
+}
+else
+{
+    <div class="container">
+        <h1>Farmer Details</h1>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Farmer ID</th>
+                    <th>Farmer Name</th>
+                    <th>Farmer Surname</th>
+                    <th>Farmer Location</th>
+                    <th>Farmer Email</th>
+                    <th>Farmer Password</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Count() > 0)
+                {
+                    @foreach (var farmer in Model)
+                    {
+                        <tr>
+                            <td>@farmer.farmerId</td>
+                            <td>@farmer.farmerFirstName</td>
+                            <td>@farmer.farmerLastName</td>
+                            <td>@farmer.farmerLocation</td>
+                            <td>@farmer.farmerEmail</td>
+                            <td>@farmer.farmerPassword</td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="5">No farmers found.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
