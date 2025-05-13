@@ -42,17 +42,15 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Models
         [DataType(DataType.Date)]
         public DateTime productionDate { get; set; }//Product production date
 
-        [Required(ErrorMessage = "Product image is required")]
-        [FileExtensions(Extensions = "jpg,jpeg,png,gif", ErrorMessage = "Please upload a valid image file (jpg, jpeg, png, gif)")]
-        public byte[] productImage { get; set; }//Product image
+      
 
-        [Required]
         public int farmerId { get; set; } //Foreign Key from FarmerModel
 
 
         // Navigation property - doesn't create column, C# property that lets you directly access the related entity in your code
         [ForeignKey("farmerId")]
-        public virtual FarmerModel farmer { get; set; } //Navigation property to FarmerModel
+        public virtual FarmerModel? farmer { get; set; } //Navigation property to FarmerModel
+        //? allow for nullable to say that it wont be set by the form
         //virtual is lazy loading - only loaded when they are needed, rather than all at once when the page initially loads
 
     }

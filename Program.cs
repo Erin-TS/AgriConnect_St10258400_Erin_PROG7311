@@ -22,6 +22,7 @@ namespace AgriConnect_St10258400_Erin_PROG7311
                 options.Cookie.HttpOnly = true; // Set the cookie to be HTTP-only
                 options.Cookie.IsEssential = true; // Make the session cookie essential
             });
+
             builder.Services.AddHttpContextAccessor();
             builder.Services.AddScoped<IUserService, UserService>();
             builder.Services.AddScoped<IUserRepository, UserRepository>();
@@ -29,7 +30,9 @@ namespace AgriConnect_St10258400_Erin_PROG7311
             builder.Services.AddScoped<IPasswordHasher<FarmerModel>, PasswordHasher<FarmerModel>>();
             builder.Services.AddScoped<IEmployeeService, EmployeeService>();
             builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
-        
+            builder.Services.AddScoped<IFarmerService, FarmerService>();
+            builder.Services.AddScoped<IFarmerRepository, FarmerRepository>();
+
             builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 

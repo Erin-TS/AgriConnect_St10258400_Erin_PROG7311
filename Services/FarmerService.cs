@@ -3,7 +3,7 @@ using AgriConnect_St10258400_Erin_PROG7311.Repositories;
 
 namespace AgriConnect_St10258400_Erin_PROG7311.Services
 {
-    public class FarmerService
+    public class FarmerService : IFarmerService
     {
         private readonly IFarmerRepository _farmerRepository;
 
@@ -12,7 +12,7 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Services
             _farmerRepository = farmerRepository;
         }
 
-        public async Task<(bool success, string productName)> addProductAsync(ProductModel product)
+        public async Task<(bool sucess, string productName)> addProductAsync(ProductModel product)
         {
             var productExists = await _farmerRepository.GetProductByNameAsync(product.productName);
             if (productExists != null)
@@ -31,5 +31,16 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Services
             }
 
         }
+
+        public async Task<FarmerModel> GetFarmerByEmailAsync(string email)
+        {
+            var farmer = await _farmerRepository.GetFarmerByEmailAsync(email);
+            if (farmer == null)
+            {
+                return null;
+            }
+            return farmer;
+        }
+
     }
 }

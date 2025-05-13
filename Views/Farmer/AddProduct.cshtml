@@ -9,6 +9,14 @@
     ViewData["Title"] = "Add Products";
     var userRole = Context.Session.GetString("UserRole");
 }
+
+@if(TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
 @if (string.IsNullOrEmpty(userRole) || userRole.Equals("Employee"))
 {
     //display unauhtorised access page
@@ -23,11 +31,12 @@ else
                 Please add a new product<br />
             </p>
             <br />
+            <div asp-validation-summary="All" class="text-danger"></div>
             <div class="row-home">
                 <div class="col-md-6-home">
                     <div class="card">
                         <p class="card-text">Please enter the following details.</p>
-                        <form asp-controller ="Farmer" asp-action="AddProduct" method="post" enctype="multipart/form-data">
+                        <form asp-controller ="farmer" asp-action="AddProduct" method="post">
                             <div class="form-group">
                             <label>Product Name</label>
                             <input asp-for="productName" type="text" class="form-control" placeholder="Enter your product name" />
@@ -42,7 +51,9 @@ else
 
                             <div class="form-group">
                             <label>Product Category</label>
-                            <input asp-for="productCategory" type="text" class="form-control" placeholder="Enter your product category" />
+                            <select asp-for="productCategory" class="form-control" asp-items="Html.GetEnumSelectList<ProductCategory>()">
+                                <option value="">Select a category</option>
+                            </select>
                             <span asp-validation-for="productCategory" class="text-danger"></span>
                             </div>
 
@@ -51,15 +62,6 @@ else
                             <input asp-for="productionDate" type="date" class="form-control" placeholder="Enter your production date" />
                             <span asp-validation-for="productionDate" class="text-danger"></span>
                             </div>
-
-                            <div class="form-group">
-                            <label>Product Image</label>
-                            <input asp-for="productImage" type="file" class="form-control" />
-                            <span asp-validation-for="productImage" class="text-danger"></span>
-                            </div>
-
-                            <input type="hidden" asp-for="farmerId" value="@Context.Session.GetString("UserId")" />
-
                             <div class="button-container">
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary">Add Product</button>

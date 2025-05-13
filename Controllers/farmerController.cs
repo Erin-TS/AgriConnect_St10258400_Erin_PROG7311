@@ -8,13 +8,13 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Controllers
     {
         private readonly IFarmerService _farmerService;
 
-        public IActionResult addProducts()
+        public farmerController(IFarmerService farmerService)
         {
-            return View();
+            _farmerService = farmerService;
         }
 
         [HttpGet]
-        public IActionResult addProduct()
+        public IActionResult AddProduct()
         {
            var role = HttpContext.Session.GetString("UserRole");
             if (role != "Farmer")
@@ -26,15 +26,26 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> addProduct(ProductModel product)
+        public async Task<IActionResult> AddProduct(ProductModel product)
         {
+            var farmerEmail = HttpContext.Session.GetString("UserEmail");
+
+            var farmer = await _farmerService.GetFarmerByEmailAsync(farmerEmail);
+            if ( farmer== null)
+            {
+                ModelState.AddModelError("", "Farmer not found. Please try again.");
+                return View(product);
+            }
+
+            product.farmerId = farmer.farmerId;
+
             if (ModelState.IsValid)
             {
                 var (success, productName) = await _farmerService.addProductAsync(product);
                 if (success)
                 {
                     TempData["SuccessMessage"] = $"Product({productName}) added successfully!";
-                    return RedirectToAction("addProducts");
+                    return RedirectToAction("AddProduct");
                 }
                 else if (!success)
                 {
