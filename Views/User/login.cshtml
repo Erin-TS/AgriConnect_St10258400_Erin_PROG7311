@@ -7,31 +7,31 @@
 }
 @model UserLoginModel
 
-<div >
+<div>
     <div class="cardContent">
-        <h1 >Login</h1>
+        <h1>Login</h1>
         @if (!string.IsNullOrEmpty(userRole))
         {
             <br />
-            <h3 >You are logged in as: @Context.Session.GetString("UserFullName") </h3>
-            <h3 >Hello @userRole, @Context.Session.GetString("UserFullName") </h3>
+            <h3>You are logged in as: @Context.Session.GetString("UserFullName") </h3>
+            <h3>Hello @userRole, @Context.Session.GetString("UserFullName") </h3>
             <br />
             <a asp-controller="User" asp-action="LogOut" class="btn-danger">Log Out</a>
         }
         else
         {
-            <p >
+            <p>
                 Please login into your existing account as a Farmer or employee<br />
 
             </p>
             <br />
-            <div >
-                <div >
-                    <div >
-                        <p >Please enter the details of your existing account.</p>
+            <div>
+                <div>
+                    <div>
+                        <p>Please enter the details of your existing account.</p>
                         <form asp-controller="User" asp-action="Login" method="post">
                             <div class="form-group">
-                                <label >Your Email</label>
+                                <label>Your Email</label>
                                 <input asp-for="UserEmail" type="text" class="form-control" placeholder="Enter your email" />
                                 <span asp-validation-for="UserEmail" class="text-danger"></span>
                             </div>
@@ -42,15 +42,15 @@
                                 <span asp-validation-for="UserPassword" class="text-danger"></span>
                             </div>
 
-                                <div class="form-group">
-                                    <button type="submit" class="btn-primary">Login</button>
-                                </div>
-                            
+                            <div class="form-group">
+                                <button type="submit" class="btn-primary">Login</button>
+                            </div>
+
                         </form>
                     </div>
                 </div>
 
-              
+
             </div>
         }
     </div>

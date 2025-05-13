@@ -13,7 +13,7 @@
     var userRole = Context.Session.GetString("UserRole");
 }
 
-@if(userRole == null || userRole.Equals("Farmer"))
+@if (userRole == null || userRole.Equals("Farmer"))
 {
     //display unauhtorised access page
     <h1 class="card-title">Unauthorised access</h1>

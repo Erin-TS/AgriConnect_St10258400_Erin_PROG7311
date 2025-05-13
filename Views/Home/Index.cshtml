@@ -10,8 +10,8 @@
             <p>Your one-stop solution for all agricultural needs.</p>
             @if (Context.Session.GetString("UserRole") == null)
             {
-                <a href="@Url.Action("Login", "User")" class="btn btn-primary">Login</a>
-                <a href="@Url.Action("Register", "User")" class="btn btn-secondary">Register</a>
+                <a href="@Url.Action("Login", "User")" class="homepage-btn-login">Login</a>
+                <a href="@Url.Action("Register", "User")" class="homepage-btn-register">Register</a>
             }
         </div>
     </div>

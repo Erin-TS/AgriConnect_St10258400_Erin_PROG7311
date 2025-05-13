@@ -7,67 +7,67 @@
 }
 @model EmployeeModel
 
-<div >
+<div>
     <div class="cardContent">
-        <h1 >Sign up</h1>
+        <h1>Sign up</h1>
         @if (!string.IsNullOrEmpty(userRole))
         {
             <br />
-            <h3 >You are logged in as: @Context.Session.GetString("UserFullName") </h3>
-            <h3 >Hello @userRole, @Context.Session.GetString("UserFullName") </h3>
+            <h3>You are logged in as: @Context.Session.GetString("UserFullName") </h3>
+            <h3>Hello @userRole, @Context.Session.GetString("UserFullName") </h3>
             <br />
             <a asp-controller="User" asp-action="LogOut" class="btn-danger">Log Out</a>
         }
         else
         {
-            <p >
+            <p>
                 Please register a new account as employee<br />
 
             </p>
             <br />
             <div>
-                <div >
+                <div>
                     <div>
-                        <p >Please enter the following details.</p>
+                        <p>Please enter the following details.</p>
                         <form asp-action="register" method="post" enctype="multipart/form-data">
                             <div class="form-group">
-                                <label >Your Name</label>
+                                <label>Your Name</label>
                                 <input asp-for="employeeFirstName" type="text" class="form-control" placeholder="Enter your name" />
                                 <span asp-validation-for="employeeFirstName" class="text-danger"></span>
                             </div>
 
                             <div class="form-group">
-                                <label >Your Last Name</label>
+                                <label>Your Last Name</label>
                                 <input asp-for="employeeLastName" type="text" class="form-control" placeholder="Enter your last name" />
                                 <span asp-validation-for="employeeLastName" class="text-danger"></span>
                             </div>
 
                             <div class="form-group">
-                                <label >Your Email</label>
+                                <label>Your Email</label>
                                 <input asp-for="employeeEmail" type="text" class="form-control" placeholder="Enter your email" />
                                 <span asp-validation-for="employeeEmail" class="text-danger"></span>
                             </div>
 
                             <div class="form-group">
-                                <label >Your Employee Number</label>
+                                <label>Your Employee Number</label>
                                 <input asp-for="employeeNumber" type="text" class="form-control" placeholder="Enter your employee number" />
                                 <span asp-validation-for="employeeNumber" class="text-danger"></span>
                             </div>
 
                             <div class="form-group">
-                                <label >Password</label>
+                                <label>Password</label>
                                 <input asp-for="employeePasswordHash" type="password" class="form-control" placeholder="Enter your Password" />
                                 <span asp-validation-for="employeePasswordHash" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label >Confirm Password</label>
+                                <label>Confirm Password</label>
                                 <input asp-for="employeePasswordConfirm" type="password" class="form-control" placeholder="Enter your Password" />
                                 <span asp-validation-for="employeePasswordConfirm" class="text-danger"></span>
                             </div>
 
-                                <div class="form-group">
-                                    <button type="submit" class="btn-primary">Sign Up</button>
-                              
+                            <div class="form-group">
+                                <button type="submit" class="btn-secondary">Sign Up</button>
+
                             </div>
                         </form>
                     </div>
