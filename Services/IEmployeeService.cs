@@ -6,5 +6,7 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Services
     {
         Task<(bool Success, string farmerPass)> addFarmersAsync(FarmerModel farmerProfile);
         Task<List<FarmerModel>> getallFarmersListAsync();
+
+        Task<List<ProductModel>> getProductsListAsync();
     }
 }

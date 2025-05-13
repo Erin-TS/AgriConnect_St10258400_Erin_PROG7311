@@ -66,9 +66,10 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Controllers
             return View(addfarmermodel); // Return the view with the model to show validation errors    
         }
 
-        public IActionResult allProducts()
+        public async Task<IActionResult> allProducts()
         {
-            return View();
+            var productsList = await _employeeService.getProductsListAsync();
+            return View(productsList);
         }
 
         public async Task<IActionResult> FarmerDetails()

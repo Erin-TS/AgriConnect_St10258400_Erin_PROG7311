@@ -26,5 +26,10 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Repositories
         {
             return await _context.Farmer.ToListAsync();
         }
+
+        public async Task<List<ProductModel>> getProductsListAsync()
+        {
+            return await _context.Product.ToListAsync();
+        }
     }
 }

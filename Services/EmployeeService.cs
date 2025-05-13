@@ -64,5 +64,10 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Services
         {
             return await _employeeRepository.getallFarmersListAsync();
         }
+
+        public async Task<List<ProductModel>> getProductsListAsync()
+        {
+            return await _employeeRepository.getProductsListAsync();
+        }
     }
 }
