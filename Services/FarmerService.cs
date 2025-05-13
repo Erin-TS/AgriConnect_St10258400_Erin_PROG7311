@@ -32,6 +32,16 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Services
 
         }
 
+        public async Task<List<ProductModel>> GetAllProductsByFarmerAsync(int farmerId)
+        {
+            var products = await _farmerRepository.GetAllProductsByFarmerAsync(farmerId);
+            if (products == null || products.Count == 0)
+            {
+                return null;
+            }
+            return products;
+        }
+
         public async Task<FarmerModel> GetFarmerByEmailAsync(string email)
         {
             var farmer = await _farmerRepository.GetFarmerByEmailAsync(email);

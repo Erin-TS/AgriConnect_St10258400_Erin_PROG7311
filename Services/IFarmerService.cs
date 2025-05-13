@@ -6,5 +6,6 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Services
     {
         Task<(bool sucess,string productName)> addProductAsync(ProductModel product);
         Task<FarmerModel> GetFarmerByEmailAsync(string email);
+        Task<List<ProductModel>> GetAllProductsByFarmerAsync(int farmerId);
     }
 }

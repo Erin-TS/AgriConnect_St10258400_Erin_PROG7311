@@ -61,9 +61,28 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Controllers
             return View(product);
         }
 
-        public IActionResult productListings()
+     public async Task<IActionResult> productListings()
         {
-            return View();
+            var role = HttpContext.Session.GetString("UserRole");
+            if (role != "Farmer")
+            {
+                return RedirectToAction("UnAuthorisedAccess", "Home");
+            }
+            var farmerEmail = HttpContext.Session.GetString("UserEmail");
+            var farmer = await _farmerService.GetFarmerByEmailAsync(farmerEmail);
+            if (farmer == null)
+            {
+                ModelState.AddModelError("", "Farmer not found. Please try again.");
+                return View();
+            }
+
+            var products = await _farmerService.GetAllProductsByFarmerAsync(farmer.farmerId);
+            if (products == null || products.Count == 0)
+            {
+                ModelState.AddModelError("", "No products found for this farmer.");
+                return View();
+            }
+            return View(products);
         }
     }
 }

@@ -27,6 +27,9 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Repositories
             await _context.SaveChangesAsync();
         }
 
-       
+        public async Task<List<ProductModel>> GetAllProductsByFarmerAsync(int farmerId)
+        {
+            return await _context.Product.Where(p => p.farmerId == farmerId).ToListAsync();
+        }
     }
 }
