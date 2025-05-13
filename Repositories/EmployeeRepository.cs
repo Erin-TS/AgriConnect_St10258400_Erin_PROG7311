@@ -1,5 +1,6 @@
 ﻿using AgriConnect_St10258400_Erin_PROG7311.Data;
 using AgriConnect_St10258400_Erin_PROG7311.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace AgriConnect_St10258400_Erin_PROG7311.Repositories
 {
@@ -14,6 +15,11 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Repositories
         {
           await _context.Farmer.AddAsync(farmer);
             await _context.SaveChangesAsync();
+        }
+
+        public async Task<FarmerModel> getFarmerByEmailAsync(string email)
+        {
+            return await _context.Farmer.FirstOrDefaultAsync(f => f.farmerEmail == email);
         }
     }
 }

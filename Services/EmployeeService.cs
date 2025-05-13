@@ -16,6 +16,12 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Services
         }
         public async Task<(bool Success, string farmerPass)> addFarmersAsync(FarmerModel farmerProfile)
         {
+            var farmerExists = await _employeeRepository.getFarmerByEmailAsync(farmerProfile.farmerEmail);
+            if (farmerExists != null)
+            {
+                return (false, "Farmer already exists with the provided email");
+            }
+
             //generate a random password
             const string vaildCharsLower = "abcdefghijklmnopqrstuvwxyz";
             const string validCharsUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";

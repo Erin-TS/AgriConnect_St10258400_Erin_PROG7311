@@ -41,15 +41,19 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Controllers
                     farmerRole = "Farmer"
                };
 
-                var (success, passsword) = await _employeeService.addFarmersAsync(farmer);
+                var (success, result) = await _employeeService.addFarmersAsync(farmer);
 
                 if (success)
                 {
-                    TempData["SuccessMessage"] = $"Farmer profile added successfully for {farmer.farmerEmail}! Password: {passsword}/n" +
+                    TempData["SuccessMessage"] = $"Farmer profile added successfully for {farmer.farmerEmail}! Password: {result}/n" +
                         $"All farmer details can be viewed on the ALl farmers page";
                     return RedirectToAction("addFarmers");
                 }
-                else
+                else if (!success)
+                {
+                    ModelState.AddModelError(farmer.farmerEmail, result);
+                    return View(addfarmermodel);
+                }else
                 {
                     ModelState.AddModelError("", "Failed to add farmer profile. Please try again.");
                 }
