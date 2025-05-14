@@ -14,20 +14,19 @@
 
 ---
 
-##Github link
-[GitHub](https//github.com](https://github.com/Erin-TS/AgriConnect_St10258400_Erin_PROG7311.git)
+## Github link
+[GitHub Repo Link](https//github.com](https://github.com/Erin-TS/AgriConnect_St10258400_Erin_PROG7311.git)
 
 ---
 
-##Project overview
-
+## Project overview
 #### Name - ***AgriConnect***
-### Purpose - To bridge the gap between the agricultural sector and green energy Technology.
-### What - Allows for Employees to create thier accounts and create farmers  and view all product. Allows for farmers to add and view thier products.
+#### Purpose - To bridge the gap between the agricultural sector and green energy Technology.
+#### Description - Allows for Employees to create thier accounts and create farmers  and view all product. Allows for farmers to add and view thier products.
 
 ---
 
-##Features
+## Features
 --Role based Authentication system allowing only logged in user with the role of "Farmer" or "Employee" to access certian pages to complete certian tasks. this is done via sessions.
 - Employees can create thier own accounts if they have thier employee number.
 - Employees can Login to thier accounts.
@@ -41,7 +40,7 @@
 ---
 
 
-##Technologies
+## Technologies
 
 - Razor Views (ASP.NET Core MVC) and css for UI and UX
 - Programing lanugage : C#
@@ -51,32 +50,50 @@
 
 ---
 
-##How to run and install
+## How to run and install
 1. Clone the repository
-   either run the following command in the
+   there are two options
+   - run the following command in the terminal:
    ```bash
    git clone https://github.com/Erin-TS/AgriConnect_St10258400_Erin_PROG7311.git
    cd AgriConnect_St10258400_Erin_PROG7311
-or 
-open the repository link 
-click the green button that says "<>Code"
-clone repository
 
-2. Ensure that you install the following nuget packages
+ #####OR
+ - open the repository link , click the green button that says **"<>Code"**
+ - clone repository
+
+2. Ensure that you install the following NuGet packages
    - Microsoft.EntityFrameworkCore.SqlServer
    - Microsoft.EntityFrameworkCore.Tools
    - Microsoft.AspNetCore.Session
    - Microsoft.AspNetCore.Identity
    (screenshot)
-3. Check the connection string in the 
-4. Add the migration
-   In visual studion go to the tools table click NugGet Package manager then NuGet package manager console
-   in the console run the following commands
+
+3. Check the connection string in the `appsettings.json` file. Check that the connection string uses local sever and database.
+   ```bash
+   {
+      "ConnectionStrings": {
+          "DefaultConnection": "Server=(localdb)\\MSSQLLocalDB;Database=AgriConnectDB;Trusted_Connection=True;"
+      },
+      "Logging": {
+          "LogLevel": {
+            "Default": "Information",
+            "Microsoft.AspNetCore": "Warning"
+          }
+      },
+      "AllowedHosts": "*"
+   }
+
+5. Add the migration
+   In Visual Studio:
+   - Go to the **Tools > NugGet Package manager > NuGet package manager console
+   - In the console run the following commands:
    ```
    Add-Migration InitalCreate
    Update-database
-6. Now you may run the project
-   in visual studio you will see a green right pointing arrow with https click that and the project will run
+   
+7. Now you may run the project
+   In visual studio you will see a green right pointing arrow with https click that and the project will run
    (screenshot)
 
 ---
@@ -123,7 +140,7 @@ There are 23 products in the system
 
 ##How to use the system
 ###Employee
-- register a new account or login to an existing account
+- Register a new account or login to an existing account
 - add new farmers
 - View a list of all farmers details int the system
 - View a list of all product in the sytem this list can be filtered by product category , date and by farmer
