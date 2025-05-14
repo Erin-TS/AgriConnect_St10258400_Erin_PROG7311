@@ -33,11 +33,11 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Controllers
                     // Redirect to the appropriate page based on the role
                     if (role == "Employee")
                     {
-                        return RedirectToAction("allProducts", "Employee");
+                        return RedirectToAction("Index", "Home");
                     }
                     else if (role == "Farmer")
                     {
-                        return RedirectToAction("productListings", "Farmer");
+                        return RedirectToAction("Index", "Home");
                     }
                 }
                 else
