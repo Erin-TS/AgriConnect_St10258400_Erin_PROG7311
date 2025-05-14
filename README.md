@@ -15,7 +15,7 @@
 ---
 
 ## Github link
-[GitHub-Repo-Link](https//github.com](https://github.com/Erin-TS/AgriConnect_St10258400_Erin_PROG7311.git)
+[GitHub-Repo-Link](https://github.com/Erin-TS/AgriConnect_St10258400_Erin_PROG7311.git)
 
 ---
 
