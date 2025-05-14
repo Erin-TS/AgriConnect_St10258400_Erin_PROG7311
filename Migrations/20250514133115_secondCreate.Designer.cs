@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AgriConnect_St10258400_Erin_PROG7311.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250513165741_removeproductImages")]
-    partial class removeproductImages
+    [Migration("20250514133115_secondCreate")]
+    partial class secondCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
