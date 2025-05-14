@@ -58,7 +58,7 @@
    git clone https://github.com/Erin-TS/AgriConnect_St10258400_Erin_PROG7311.git
    cd AgriConnect_St10258400_Erin_PROG7311
 
- #####OR
+ ##### OR
  - open the repository link , click the green button that says **"<>Code"**
  - clone repository
 
@@ -98,19 +98,19 @@
 
 ---
 
-##Seeded data
+## Seeded data
 Here are the users that have been seeded into the database:
-###Farmers:
+### Farmers:
 - Jack Mcdonald(email:j.m@gmail.com, Password:Pass1234!)
 - Penny Leaf(email:p.l@gmail.com, Password:Pass1234!)
 - Max Verstappen(email:m.v@gmail.com, Password:Pass1234!)
 - Lilly Brown(email:l.b@gmail.com, Password:Pass1234!)
 
-###Empoloyees
+### Empoloyees
 - Erin Steenveld(Email:e.s@gmail.com, Password:Abcd1234!)
 - Clive Frankland(Email:c.f@gmail.com, Password:Abcd1234@)
 
-###Products
+### Products
 There are 23 products in the system
 - Potatoes
 - Carrots
@@ -138,14 +138,14 @@ There are 23 products in the system
 
 ---
 
-##How to use the system
-###Employee
+## How to use the system
+### Employee
 - Register a new account or login to an existing account
 - add new farmers
 - View a list of all farmers details int the system
 - View a list of all product in the sytem this list can be filtered by product category , date and by farmer
 
-###Farmer
+### Farmer
 - Login to existing account that was created by a employee
 - Add products to your profile
 - view a list of products you have ever added to your profile
@@ -154,4 +154,4 @@ If farmer tries to access an employees page or visa verse or if a logged out use
 
 ---
 
-##Refrences
+## Refrences
