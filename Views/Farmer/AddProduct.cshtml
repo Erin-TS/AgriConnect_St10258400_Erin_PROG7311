@@ -7,7 +7,6 @@
 @model ProductModel
 @{
     ViewData["Title"] = "Add Products";
-    var userRole = Context.Session.GetString("UserRole");
 }
 
 @if (TempData["SuccessMessage"] != null)
@@ -17,13 +16,6 @@
     </div>
 }
 
-@if (string.IsNullOrEmpty(userRole) || userRole.Equals("Employee"))
-{
-    //display unauhtorised access page
-    <h1 class="card-title">Unauthorised access</h1>
-}
-else
-{
     <div class="container">
         <div class="text-center">
             <h1>Add Product</h1>
@@ -65,4 +57,4 @@ else
             </form>
         </div>
     </div>
-}
+

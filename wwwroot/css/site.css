@@ -207,6 +207,23 @@ p{
         color: #fff;
     }
 
+.noAccess-btn-orange {
+background-color: var(--atomic-tangerine-btn);
+color: #fff;
+margin-right: 10px;
+padding: 10px 25px;
+border-radius: 8px;
+font-size: 16px;
+cursor: pointer;
+text-decoration: none;
+}
+
+    .noAccess-btn-orange:hover {
+        background-color: #d15d13;
+        transform: translate(-2px);
+        color: #fff;
+    }
+
 .homepage-btn-green {
     background-color: var(--emerald-heading);
     color: #fff;
@@ -311,7 +328,7 @@ p{
 }
 
 @media (min-width: 769px) {
-    .homepage-btn-orange, .homepage-btn-purple, .homepage-btn-green {
+    .homepage-btn-orange, .homepage-btn-purple, .homepage-btn-green, .noAccess-btn-orange {
         display: inline-block;
         width: auto;
         max-width: none;

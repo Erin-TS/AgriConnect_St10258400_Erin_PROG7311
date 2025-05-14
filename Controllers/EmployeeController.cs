@@ -70,6 +70,11 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Controllers
 
         public async Task<IActionResult> allProducts()
         {
+            var role = HttpContext.Session.GetString("UserRole");
+            if (role != "Employee")
+            {
+                return RedirectToAction("UnAuthorisedAccess", "Home");
+            }
             var productsList = await _employeeService.getProductsListAsync();
             var farmerList = await _employeeService.getallFarmersListAsync();
 
@@ -119,6 +124,11 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Controllers
 
         public async Task<IActionResult> FarmerDetails()
         {
+            var role = HttpContext.Session.GetString("UserRole");
+            if (role != "Employee")
+            {
+                return RedirectToAction("UnAuthorisedAccess", "Home");
+            }
             var farmerList = await _employeeService.getallFarmersListAsync();
             return View(farmerList);
         }

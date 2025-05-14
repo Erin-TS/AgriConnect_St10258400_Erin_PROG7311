@@ -10,13 +10,7 @@
     ViewData["Title"] = "Product Listings";
     var userRole = Context.Session.GetString("UserRole");
 }
-@if (string.IsNullOrEmpty(userRole) || userRole.Equals("Employee"))
-{
-    //display unauhtorised access page
-    <h1 class="card-title">Unauthorised access</h1>
-}
-else
-{
+
     <div class="container">
             <h1 >Product Listings</h1>
             <p >
@@ -55,4 +49,3 @@ else
                 </tbody
             </table>
     </div>
-}
