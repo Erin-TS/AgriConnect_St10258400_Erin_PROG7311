@@ -19,6 +19,7 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Data
         //Configuring tables to what is needed in the database
         //establishes table relationships like one to one or one to many
         //configures the primary keys for each table
+        //seeds intial data to the database
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //establishing one to many relationship : farmer to product
