@@ -2,10 +2,13 @@
 intialse tables and seed data. The table relationships are also creted here*/
 /*Refrence links
  *https://learn.microsoft.com/en-us/ef/core/modeling/data-seeding
- *https://learn.microsoft.com/en-us/ef/core/modeling/data-seeding
  *https://learn.microsoft.com/en-us/dotnet/api/system.data.entity.dbcontext?view=entity-framework-6.2.0
  *https://www.pragimtech.com/blog/blazor/asp.net-core-rest-api-dbcontext/
  *https://www.youtube.com/watch?v=wE8cW_Fn0mU
+ *https://dev.to/moh_moh701/efcore-tutorial-p5cleaning-up-ef-cores-onmodelcreating-45fg
+ *https://www.c-sharpcorner.com/article/entity-framework-core-code-first-approach-with-fluent-api/
+ *https://www.learnentityframeworkcore.com/configuration/fluent-api
+ *https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli
  */
 
 //------Imports------//

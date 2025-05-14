@@ -1,8 +1,22 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿//this is the model for the product table in the database.It is used to stores all the infromation of the product.
+/*Refrencelinks:
+ *https://learn.microsoft.com/en-us/ef/core/modeling/
+ *https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/adding-model?view=aspnetcore-9.0&tabs=visual-studio
+ *https://learn.microsoft.com/en-us/ef/core/querying/related-data/lazy
+ *https://learn.microsoft.com/en-us/ef/core/
+ *https://www.entityframeworktutorial.net/efcore/entity-framework-core.aspx
+ *https://learn.microsoft.com/en-us/ef/ef6/fundamentals/relationships
+ */
+
+//-------Imports--------//
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+//--------Namespace--------//
 namespace AgriConnect_St10258400_Erin_PROG7311.Models
 {
+    //--------Enumeration--------//
+    //this is the enumeration for the product category. It is used to create set categories for a product.
     public enum ProductCategory
     {
         Fruits,
@@ -19,8 +33,10 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Models
         Herbs
     }
 
+    //--------Class--------//
     public class ProductModel
     {
+        //--------Properties--------//
         [Key]
         public int productID { get; set; }//primary Key
 
@@ -47,7 +63,7 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Models
         public int farmerId { get; set; } //Foreign Key from FarmerModel
 
 
-        // Navigation property - doesn't create column, C# property that lets you directly access the related entity in your code
+        // Navigation property - doesn't create column it is a C# property that lets you directly access the related entity in your code
         [ForeignKey("farmerId")]
         public virtual FarmerModel? farmer { get; set; } //Navigation property to FarmerModel
         //? allow for nullable to say that it wont be set by the form

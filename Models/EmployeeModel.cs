@@ -1,10 +1,28 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿//this is the model for the employee table in the database
+//it contains all the properties that are needed to create an employee
+//it also contains data annotations for validation and to specify the primary key
+
+/*Refrencelinks:
+ *https://learn.microsoft.com/en-us/ef/core/modeling/
+ *https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/adding-model?view=aspnetcore-9.0&tabs=visual-studio
+ *https://learn.microsoft.com/en-us/ef/core/querying/related-data/lazy
+ *https://learn.microsoft.com/en-us/ef/core/
+ *https://www.entityframeworktutorial.net/efcore/entity-framework-core.aspx
+ *https://learn.microsoft.com/en-us/ef/ef6/fundamentals/relationships
+ */
+
+
+//--------Imports--------//
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+//--------Namespace--------//
 namespace AgriConnect_St10258400_Erin_PROG7311.Models
 {
+    //--------Class--------//
     public class EmployeeModel
     {
+        //--------Properties--------//
         [Key]
         public int employeeId { get; set; } //Primary key
 

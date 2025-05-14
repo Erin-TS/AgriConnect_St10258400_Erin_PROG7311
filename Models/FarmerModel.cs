@@ -1,10 +1,24 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿//this is the model for the Farmer table in the database. It contains the properties for the Farmer table and the validation attributes for each property
+//The validation attributes are used to validate the data entered by the user in the form
+/*Refrencelinks:
+ *https://learn.microsoft.com/en-us/ef/core/modeling/
+ *https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/adding-model?view=aspnetcore-9.0&tabs=visual-studio
+ *https://learn.microsoft.com/en-us/ef/core/querying/related-data/lazy
+ *https://learn.microsoft.com/en-us/ef/core/
+ *https://www.entityframeworktutorial.net/efcore/entity-framework-core.aspx
+ *https://learn.microsoft.com/en-us/ef/ef6/fundamentals/relationships
+ */
 
+//--------Imports--------//
+using System.ComponentModel.DataAnnotations;
+
+//--------Namespace--------//
 namespace AgriConnect_St10258400_Erin_PROG7311.Models
 {
+    //--------Class--------//
     public class FarmerModel
     {
+        //--------Properties--------//
         [Key]
         public int farmerId { get; set; }//primary Key 
    
@@ -30,8 +44,7 @@ namespace AgriConnect_St10258400_Erin_PROG7311.Models
             ErrorMessage = "Password must contain at least one uppercase letter, one lowercase letter, one number and one special character. Password must be a minimun of 8 characters")] //UPERCASE, lowercase, number, special character, MIN LENGTH 8
         public string farmerPasswordHash { get; set; }//Password
 
-
-        public string farmerPassword { get; set; } //Password for the view only, not stored in the database
+        public string farmerPassword { get; set; } //Password for the view 
 
         [Required]
         public string farmerRole { get; set; } = "Farmer";  // Farmer
