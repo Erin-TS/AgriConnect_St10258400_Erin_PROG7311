@@ -89,7 +89,7 @@
 5. Add the migration
    In Visual Studio:
    - Go to the **Tools > NugGet Package manager > NuGet package manager console
-   - In the console run the following commands:
+   - In the console run the following commands: run both if there are no migrations, however if there are migrations run the update command to ensure database gets created
    ```
    Add-Migration InitalCreate
    Update-database
@@ -111,8 +111,8 @@ Here are the users that have been seeded into the database:
 - Lilly Brown(email:l.b@gmail.com, Password:Pass1234!)
 
 ### Empoloyees
-- Erin Steenveld(Email:e.s@gmail.com, Password:Abcd1234!)
-- Clive Frankland(Email:c.f@gmail.com, Password:Abcd1234@)
+- Erin Steenveld(Email:e.s@gmail.com, Password:Abcd1234@)
+- Clive Frankland(Email:c.f@gmail.com, Password:Abcd1234!)
 
 ### Products
 There are 23 products in the system
