@@ -159,3 +159,46 @@ If farmer tries to access an employees page or visa verse or if a logged out use
 ---
 
 ## Refrences
+ASP.NET MVC, 2023. Drop Table using migration Command in Entity Framework Core. [online] Available at: https://www.youtube.com/watch?v=wE8cW_Fn0mU [Accessed 8 May 2025].
+Brijesh Jalan, 2010. Generating Random Passwords with ASP. NET and C#. [online] Available at: https://www.c-sharpcorner.com/UploadFile/brij_mcn/generating-random-passwords-with-asp-net-and-C-Sharp/ [Accessed 11 May 2025].
+Collings, T., 2021. Controller-Service-Repository. [online] Available at: https://tom-collings.medium.com/controller-service-repository-16e29a4684e5 [Accessed 11 May 2025].
+Complete C# Tutorial, 2015. ASP.NET MVC 5 – HTTPGET and HTTPPOST Method with Example. [online] Available at: https://www.completecsharptutorial.com/asp-net-mvc5/asp-net-mvc-5-httpget-and-httppost-method-with-example.php [Accessed 12 May 2025].
+dotnet-bot, 2025. DbContext Class, System.Data.Entity. [online] Available at: https://learn.microsoft.com/en-us/dotnet/api/system.data.entity.dbcontext?view=entity-framework-6.2.0 [Accessed 10 May 2025].
+Getachew, S., 2024. Best Practices for Using Entity Framework Core in ASP.NET Core Applications with .NET 8. [online] Available at: https://medium.com/@solomongetachew112/best-practices-for-using-entity-framework-core-in-asp-net-core-applications-with-net-8-9e4d796c02ac [Accessed 10 May 2025].
+Kalla, M., 2024. Session in ASP.NET Core MVC .NET 8. [online] Available at: https://www.c-sharpcorner.com/article/session-in-asp-net-core-mvc-net-8/ [Accessed 13 May 2025].
+Learn Smart Coding, 2024. EP3: Setting Up .NET Core API Project & EF Core Integration | Scaffolding & Dependency Injection. [online] Available at: https://www.youtube.com/watch?v=CATF49Frgrw [Accessed 9 May 2025].
+Microsoft, 2021a. Lazy Loading of Related Data - EF Core. [online] Available at: https://learn.microsoft.com/en-us/ef/core/querying/related-data/lazy [Accessed 8 May 2025].
+Microsoft, 2021b. Overview of Entity Framework Core - EF Core. [online] Available at: https://learn.microsoft.com/en-us/ef/core/ [Accessed 6 May 2025].
+Microsoft, 2022a. Compute/compare hash values by using C# - C#. [online] Available at: https://learn.microsoft.com/en-us/troubleshoot/developer/visualstudio/csharp/language-compilers/compute-hash-values [Accessed 8 May 2025].
+Microsoft, 2022b. Data Seeding - EF Core. [online] Available at: https://learn.microsoft.com/en-us/ef/core/modeling/data-seeding [Accessed 8 May 2025].
+Microsoft, 2023a. Creating and Configuring a Model - EF Core. [online] Available at: https://learn.microsoft.com/en-us/ef/core/modeling/ [Accessed 14 May 2025].
+Microsoft, 2023b. Migrations Overview - EF Core. [online] Available at: https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli [Accessed 11 May 2025].
+Microsoft, 2024a. Introduction to Razor Pages in ASP.NET Core. [online] Available at: https://learn.microsoft.com/en-us/aspnet/core/razor-pages/?view=aspnetcore-9.0&tabs=visual-studio [Accessed 9 May 2025].
+Microsoft, 2024b. Model validation in ASP.NET Core MVC. [online] Available at: https://learn.microsoft.com/en-us/aspnet/core/mvc/models/validation?view=aspnetcore-9.0 [Accessed 7 May 2025].
+Microsoft, 2024c. Razor syntax reference for ASP.NET Core. [online] Available at: https://learn.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-9.0 [Accessed 9 May 2025].
+Microsoft, 2024d. Session in ASP.NET Core. [online] Available at: https://learn.microsoft.com/en-us/aspnet/core/fundamentals/app-state?view=aspnetcore-9.0 [Accessed 9 May 2025].
+Microsoft, 2025a. Implementing the Repository and Unit of Work Patterns in an ASP.NET MVC Application, 9 of 10. [online] Available at: https://learn.microsoft.com/en-us/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application [Accessed 7 May 2025].
+Microsoft, 2025b. Relationships, navigation properties, and foreign keys - EF6. [online] Available at: https://learn.microsoft.com/en-us/ef/ef6/fundamentals/relationships [Accessed 10 May 2025].
+Milan Jovanović, 2023. Why You Don’t Need To Abstract Away EF Core With Clean Architecture. [online] Available at: https://www.youtube.com/watch?v=IGVRVO7KTss [Accessed 10 May 2025].
+Nano ASP Boilerplate, 2022. Using Dependency Injection, Interfaces, & Services in ASP.NET Core - 10 Minute Guide + GitHub Sample. [online] Available at: https://www.youtube.com/watch?v=Vxq8PXvYb6I [Accessed 10 May 2025].
+O’Didily, M., 2023. How to Make a Password Generator in C#. [online] Available at: https://www.youtube.com/watch?v=9mRSFRvI1H8 [Accessed 12 May 2025].
+Patel, R., 2024. Dependency Injection and Services in ASP.NET Core: A Comprehensive Guide. [online] Available at: https://medium.com/@ravipatel.it/dependency-injection-and-services-in-asp-net-core-a-comprehensive-guide-dd69858c1eab [Accessed 10 May 2025].
+Pickett, W., 2024a. Part 4, add a model to an ASP.NET Core MVC app. [online] Available at: https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/adding-model?view=aspnetcore-9.0&tabs=visual-studio [Accessed 9 May 2025].
+Pickett, W., 2024b. Tutorial: Create a web API with ASP.NET Core. [online] Available at: https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-9.0&tabs=visual-studio [Accessed 8 May 2025].
+Pragimtech, 2020. ASP.NET Core REST API DbContext. [online] Available at: https://www.pragimtech.com/blog/blazor/asp.net-core-rest-api-dbcontext/ [Accessed 10 May 2025].
+Tayel, mohamed, 2024. EFCore Tutorial P4:Cleaning Up `OnModelCreating`. [online] Available at: https://dev.to/moh_moh701/efcore-tutorial-p5cleaning-up-ef-cores-onmodelcreating-45fg [Accessed 11 May 2025].
+Teddy Smith, 2022. ASP.NET Core Web API - 5. Repository Pattern & Dependency Injection Explained. [online] Available at: https://www.youtube.com/watch?v=-LAeEQSfOQk [Accessed 14 May 2025].
+Thachankary, G.J., 2019. Entity Framework Core - Code First Approach With Fluent API. [online] Available at: https://www.c-sharpcorner.com/article/entity-framework-core-code-first-approach-with-fluent-api/ [Accessed 12 May 2025].
+TutorialsEU - C#, 2023. How to use the Repository Design Pattern in C# and ASP.NET. [online] Available at: https://www.youtube.com/watch?v=8fFBWmbUaIg [Accessed 12 May 2025].
+UI Bakery, 2025. Password regex C# | UI Bakery. [online] Available at: https://uibakery.io/regex-library/password-regex-csharp [Accessed 7 May 2025].
+W3Schools, 2019. CSS Media Queries. [online] Available at: https://www.w3schools.com/css/css3_mediaqueries.asp [Accessed 8 May 2025].
+W3Schools, 2022. CSS Tutorial. [online] Available at: https://www.w3schools.com/css/default.asp [Accessed 10 May 2025].
+W3Schools, 2025a. ASP.NET Razor Markup. [online] Available at: https://www.w3schools.com/ASp/razor_intro.asp [Accessed 9 May 2025].
+W3Schools, 2025b. C# Interface. [online] www.w3schools.com. Available at: https://www.w3schools.com/cs/cs_interface.php [Accessed 6 May 2025].
+Walther, S., 2022a. ASP.NET MVC Controller Overview, C#. [online] Available at: https://learn.microsoft.com/en-us/aspnet/mvc/overview/older-versions-1/controllers-and-routing/aspnet-mvc-controllers-overview-cs [Accessed 10 May 2025].
+Walther, S., 2022b. Validating with a Service Layer, C#. [online] Available at: https://learn.microsoft.com/en-us/aspnet/mvc/overview/older-versions-1/models-data/validating-with-a-service-layer-cs [Accessed 7 May 2025].
+Zero To Mastery, 2024. CSS 101 Crash Course: Beginner’s Guide to Web Design, 8 HOURS!. [online] Available at: https://www.youtube.com/watch?v=impqUbJdkgM [Accessed 10 May 2025].
+ZZZ Projects, 2025a. Entity Framework Core Tutorials. [online] Available at: https://www.entityframeworktutorial.net/efcore/entity-framework-core.aspx [Accessed 7 May 2025].
+ZZZ Projects, 2025b. Fluent API Configuration. [online] Available at: https://www.learnentityframeworkcore.com/configuration/fluent-api [Accessed 10 May 2025].
+
+
