@@ -61,7 +61,7 @@
 
     #####                       OR
     - open the repository link , click the green button that says **"<>Code"**
-    - clone repository
+    - copy the URl from there to clone with the above command
 
 2. Ensure that you install the following NuGet packages
    - Microsoft.EntityFrameworkCore.SqlServer
