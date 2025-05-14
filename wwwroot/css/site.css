@@ -3,7 +3,7 @@
     --atomic-tangerine-btn: #ff934f;
     --uranian-blue-containers: #b6ddf7;
     --honeydew-bg: #f1ffe7;
-    --light-green-hover: #a9fdac;
+    --green-hover: #14722f;
     --emerald-heading: #0bba3d;
     --purplr-reg:#7455f7;
 }
@@ -30,6 +30,10 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
     text-align: center;
     margin: 20px 0;
+}
+
+h4{
+    color:dimgrey;
 }
 
 p{
@@ -186,24 +190,40 @@ p{
 }
 
 /*Homepage buttons*/
-.homepage-btn-login{
+.homepage-btn-orange {
     background-color: var(--atomic-tangerine-btn);
     color: #fff;
-   margin-right: 10px;
-   padding: 10px 25px;
-   border-radius:8px;
-   font-size: 16px;
-   cursor:pointer;
-   text-decoration:none;
-
+    margin-right: 10px;
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
 }
-.homepage-btn-login:hover{
-    background-color: #d15d13;
-    transform: translate(-2px);
-    color:#fff;
- }
+    .homepage-btn-orange:hover {
+        background-color: #d15d13;
+        transform: translate(-2px);
+        color: #fff;
+    }
 
-.homepage-btn-register {
+.homepage-btn-green {
+    background-color: var(--emerald-heading);
+    color: #fff;
+    margin-right: 10px;
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+    .homepage-btn-green:hover {
+        background-color: var(--green-hover);
+        transform: translate(-2px);
+        color: #fff;
+    }
+
+.homepage-btn-purple {
     background-color: var(--purplr-reg);
     color: #fff;
     margin-right: 10px;
@@ -213,11 +233,11 @@ p{
     cursor: pointer;
     text-decoration: none;
 }
-.homepage-btn-register:hover{
-    background-color: #31189c;
-    transform: translate(-2px);
-    color:#fff;
-}
+    .homepage-btn-purple:hover {
+        background-color: #31189c;
+        transform: translate(-2px);
+        color: #fff;
+    }
 
 /*Nav bar*/
 
@@ -276,8 +296,8 @@ p{
         max-width: 100%;
     }
 
-    .homepage-btn-login, .homepage-btn-register{
-        display:block;
+    .homepage-btn-orange, .homepage-btn-purple {
+        display: block;
         margin: 10px auto;
         width: auto;
         padding: 12px;
@@ -290,10 +310,10 @@ p{
 }
 
 @media (min-width: 769px) {
-    .homepage-btn-login, .homepage-btn-register{
-        display:inline-block;
+    .homepage-btn-orange, .homepage-btn-purple, .homepage-btn-green {
+        display: inline-block;
         width: auto;
-        max-width:none;
+        max-width: none;
     }
     .filter-row{
         display: flex;

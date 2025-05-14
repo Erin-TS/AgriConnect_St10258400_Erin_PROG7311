@@ -1,17 +1,59 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    var userRole = Context.Session.GetString("UserRole");
+    var fullName = Context.Session.GetString("FullName");
+
 }
 
 
 <div class="cardContent">
     <div class="row">
         <div class="col-md-12">
-            <h1>Welcome to Agri Connect</h1>
-            <p>Your one-stop solution for all agricultural needs.</p>
-            @if (Context.Session.GetString("UserRole") == null)
+           
+            @if (userRole == null)
             {
-                <a href="@Url.Action("Login", "User")" class="homepage-btn-login">Login</a>
-                <a href="@Url.Action("Register", "User")" class="homepage-btn-register">Register</a>
+                <h1>Welcome to Agri Connect</h1>
+                <p>
+                    Bridging the gap in the Agricutral sector one step at a time.<br />
+                    Please login to your existing account.If you are an employee you may register a new account. If your are a farmer please contact an employee to create an account.
+                </p>
+                <a href="@Url.Action("Login", "User")" class="homepage-btn-orange">Login</a>
+                <a href="@Url.Action("Register", "User")" class="homepage-btn-purple">Register</a>
+            }
+            else if (userRole == "Farmer")
+            {
+                <h1>Welcome, @fullName to Agri Connect</h1>
+                <p>As a Farmer you may either add products to your profile or view all your products that you have listed.</p>
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <h4>Add products</h4>
+                        <a href="@Url.Action("AddProduct", "Farmer")" class="homepage-btn-orange">Add products</a>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>View your products</h4>
+                        <a href="@Url.Action("productListings", "Farmer")" class="homepage-btn-purple">Products Listings</a>
+                    </div>
+                </div>
+
+            }
+            else if (userRole == "Employee")
+            {
+                <h1>Welcome, @fullName to Agri Connect</h1>
+                <p>As an Employee you can create farmer profiles, view all farmers details to provide the farmer with thier login details and view a list of all products.</p>
+                <div class="row mt-3">
+                    <div class="col-md-4">
+                        <h4>Add famer profile</h4>
+                        <a href="@Url.Action("addFarmers", "Employee")" class="homepage-btn-orange">Add farmer</a>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>View all farmers</h3>
+                        <a href="@Url.Action("FarmerDetails", "Employee")" class="homepage-btn-purple">Farmer Details</a>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>View all products</h3>
+                        <a href="@Url.Action("allProducts", "Employee")" class="homepage-btn-green">Products</a>
+                    </div>
+                </div>
             }
         </div>
     </div>
