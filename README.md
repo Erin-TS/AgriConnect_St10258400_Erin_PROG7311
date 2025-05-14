@@ -27,7 +27,7 @@
 ---
 
 ## Features
---Role based Authentication system allowing only logged in user with the role of "Farmer" or "Employee" to access certian pages to complete certian tasks. this is done via sessions.
+- Role based Authentication system allowing only logged in user with the role of "Farmer" or "Employee" to access certian pages to complete certian tasks. this is done via sessions.
 - Employees can create thier own accounts if they have thier employee number.
 - Employees can Login to thier accounts.
 - Only Employees can add farmers to the sytem and then they must provide the login details to that farmer.
