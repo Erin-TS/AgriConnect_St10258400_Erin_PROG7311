@@ -1,5 +1,7 @@
 # AgriConnect_St10258400_Erin_PROG7311
 
+---
+
 ##Table of contents
 1.[GithubLink](#Githublink)
 2.[Project Overview](#Project overview)
@@ -77,6 +79,8 @@ clone repository
    in visual studio you will see a green right pointing arrow with https click that and the project will run
    (screenshot)
 
+---
+
 ##Seeded data
 Here are the users that have been seeded into the database:
 ###Farmers:
@@ -131,5 +135,7 @@ There are 23 products in the system
 RefrenceList
 
 If farmer tries to access an employees page or visa verse or if a logged out user tryies to access any page that is not login or register the unauthrised access page will display with a button to redirect the user to the home page. This is donte through the use of sessions.
+
+---
 
 ##Refrences
