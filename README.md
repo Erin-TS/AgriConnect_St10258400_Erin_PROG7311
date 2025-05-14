@@ -2,20 +2,20 @@
 
 ---
 
-##Table of contents
-1.[GithubLink](#Githublink)
-2.[Project Overview](#Project overview)
-3.[Features](#Features)
-4.[Technologies](#Technologies)
-5.[How to run and install](#How to run and install)
-6.[Seeded data](#Seeded data)
-7.[How to use the system](#How to use the system)
-8.[Refrences](#Refrences)
+## Table of contents
+1. [GithubLink](#Github-link)
+2. [Project Overview](#Project-overview)
+3. [Features](#Features)
+4. [Technologies](#Technologies)
+5. [How to run and install](#How-to-run-and-install)
+6. [Seeded data](#Seeded-data)
+7. [How to use the system](#How-to-use-the-system)
+8. [Refrences](#Refrences)
 
 ---
 
-##Githublink
-[GitHub](https//github.com)
+##Github link
+[GitHub](https//github.com](https://github.com/Erin-TS/AgriConnect_St10258400_Erin_PROG7311.git)
 
 ---
 
@@ -43,11 +43,11 @@
 
 ##Technologies
 
--Razor Views (ASP.NET Core MVC) and css for UI and UX
--Programing lanugage : C#
--Architecture and Design patterns: MVC with Servie and Repository
--SQL Server using Entity Framework Core for the database
--ASP.NET Core Session to manage logged in user
+- Razor Views (ASP.NET Core MVC) and css for UI and UX
+- Programing lanugage : C#
+- Architecture and Design patterns: MVC with Servie and Repository
+- SQL Server using Entity Framework Core for the database
+- ASP.NET Core Session to manage logged in user
 
 ---
 
@@ -55,20 +55,20 @@
 1. Clone the repository
    either run the following command in the
    ```bash
-   git clone
-   cd
+   git clone https://github.com/Erin-TS/AgriConnect_St10258400_Erin_PROG7311.git
+   cd AgriConnect_St10258400_Erin_PROG7311
 or 
 open the repository link 
 click the green button that says "<>Code"
 clone repository
 
 2. Ensure that you install the following nuget packages
-   -Microsoft.EntityFrameworkCore.SqlServer
-   -Microsoft.EntityFrameworkCore.Tools
-   -Microsoft.AspNetCore.Session
-   -Microsoft.AspNetCore.Identity
+   - Microsoft.EntityFrameworkCore.SqlServer
+   - Microsoft.EntityFrameworkCore.Tools
+   - Microsoft.AspNetCore.Session
+   - Microsoft.AspNetCore.Identity
    (screenshot)
-3.Check the connection string in the 
+3. Check the connection string in the 
 4. Add the migration
    In visual studion go to the tools table click NugGet Package manager then NuGet package manager console
    in the console run the following commands
@@ -84,40 +84,40 @@ clone repository
 ##Seeded data
 Here are the users that have been seeded into the database:
 ###Farmers:
--Jack Mcdonald(email:j.m@gmail.com, Password:Pass1234!)
--Penny Leaf(email:p.l@gmail.com, Password:Pass1234!)
--Max Verstappen(email:m.v@gmail.com, Password:Pass1234!)
--Lilly Brown(email:l.b@gmail.com, Password:Pass1234!)
+- Jack Mcdonald(email:j.m@gmail.com, Password:Pass1234!)
+- Penny Leaf(email:p.l@gmail.com, Password:Pass1234!)
+- Max Verstappen(email:m.v@gmail.com, Password:Pass1234!)
+- Lilly Brown(email:l.b@gmail.com, Password:Pass1234!)
 
 ###Empoloyees
--Erin Steenveld(Email:e.s@gmail.com, Password:Abcd1234!)
--Clive Frankland(Email:c.f@gmail.com, Password:Abcd1234@)
+- Erin Steenveld(Email:e.s@gmail.com, Password:Abcd1234!)
+- Clive Frankland(Email:c.f@gmail.com, Password:Abcd1234@)
 
 ###Products
 There are 23 products in the system
--Potatoes
--Carrots
--Radish
--Chicken
--Brown Eggs
--Apples
--Bananas
--Grapes
--Peaches
--Parsely
--Rosemary
--Thyme
--Jersey Milk
--Goats Milk
--Brie Cheese
--White eggs free range
--Bacon
--Beef steaks
--Rye Flour
--Wheat Flour
--Oats
--Pumkin seeds
--Sunflower seeds
+- Potatoes
+- Carrots
+- Radish
+- Chicken
+- Brown Eggs
+- Apples
+- Bananas
+- Grapes
+- Peaches
+- Parsely
+- Rosemary
+- Thyme
+- Jersey Milk
+- Goats Milk
+- Brie Cheese
+- White eggs free range
+- Bacon
+- Beef steaks
+- Rye Flour
+- Wheat Flour
+- Oats
+- Pumkin seeds
+- Sunflower seeds
 
 ---
 
@@ -129,10 +129,9 @@ There are 23 products in the system
 - View a list of all product in the sytem this list can be filtered by product category , date and by farmer
 
 ###Farmer
--Login to existing account that was created by a employee
--Add products to your profile
+- Login to existing account that was created by a employee
+- Add products to your profile
 - view a list of products you have ever added to your profile
-RefrenceList
 
 If farmer tries to access an employees page or visa verse or if a logged out user tryies to access any page that is not login or register the unauthrised access page will display with a button to redirect the user to the home page. This is donte through the use of sessions.
 
