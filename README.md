@@ -54,20 +54,22 @@
 1. Clone the repository
    there are two options
    - run the following command in the terminal:
-   ```bash
-   git clone https://github.com/Erin-TS/AgriConnect_St10258400_Erin_PROG7311.git
-   cd AgriConnect_St10258400_Erin_PROG7311
+       ```bash
+       git clone https://github.com/Erin-TS/AgriConnect_St10258400_Erin_PROG7311.git
+       cd AgriConnect_St10258400_Erin_PROG7311
 
- ##### OR
- - open the repository link , click the green button that says **"<>Code"**
- - clone repository
+
+    #####                       OR
+    - open the repository link , click the green button that says **"<>Code"**
+    - clone repository
 
 2. Ensure that you install the following NuGet packages
    - Microsoft.EntityFrameworkCore.SqlServer
    - Microsoft.EntityFrameworkCore.Tools
-   - Microsoft.AspNetCore.Session
-   - Microsoft.AspNetCore.Identity
-   (screenshot)
+   - Microsoft.EntityFrameworkCore
+
+   <img width="376" alt="image" src="https://github.com/user-attachments/assets/2ed0a0ec-3e48-466c-99b1-67a3df089e7e" />
+
 
 3. Check the connection string in the `appsettings.json` file. Check that the connection string uses local sever and database.
    ```bash
@@ -94,7 +96,9 @@
    
 7. Now you may run the project
    In visual studio you will see a green right pointing arrow with https click that and the project will run
-   (screenshot)
+
+   <img width="146" alt="image" src="https://github.com/user-attachments/assets/68256ea4-f613-4a0e-86a0-5f73e6494722" />
+
 
 ---
 
