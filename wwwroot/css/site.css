@@ -173,9 +173,10 @@ p{
     color: #fff;
 }
 
-    .btn-secondary:hover {
+    .btn-secondary:hover, button[type="submit"]:hover {
         background-color: #31189c;
-        color: #fff
+        transform: translate(-2px);
+        color: #fff;
     }
 
 .btn-danger {
