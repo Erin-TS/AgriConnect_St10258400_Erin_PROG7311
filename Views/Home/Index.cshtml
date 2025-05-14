@@ -1,4 +1,13 @@
-﻿@{
+﻿@*
+    this is the home page view for the Agri Connect application. Depending on what the user role is the user will be presented with different options. 
+    The user can either be a farmer or an employee. If the user is not logged in they will be presented with a login and register button.
+     Refrences Links:
+    -https://www.w3schools.com/asp/razor_intro.asp
+    -https://learn.microsoft.com/en-us/aspnet/core/razor-pages/?view=aspnetcore-9.0&tabs=visual-studio
+    -https://learn.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-9.0
+*@
+
+@{
     ViewData["Title"] = "Home Page";
     var userRole = Context.Session.GetString("UserRole");
     var fullName = Context.Session.GetString("FullName");

@@ -1,8 +1,10 @@
 ﻿@*
-    This page will display only if users dont have permission to access a page
+    This page will display only if users dont have permission to access a page. It provides a baack to home page button for users to click to go back to home page.
+    Refrences Links:
+    -https://www.w3schools.com/asp/razor_intro.asp
+    -https://learn.microsoft.com/en-us/aspnet/core/razor-pages/?view=aspnetcore-9.0&tabs=visual-studio
+    -https://learn.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-9.0
 *@
-@{
-}
 
 @{
     ViewData["Title"] = "Unauthorized Access";
@@ -11,7 +13,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12" style="text-align: center;">
-            
+
             <h1>Unauthorized Access</h1>
             <p>You do not have permission to access this page.</p>
             <a href="@Url.Action("Index", "Home")" class="noAccess-btn-orange">Go to Home</a>
