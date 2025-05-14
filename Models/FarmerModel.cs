@@ -7,6 +7,7 @@
  *https://learn.microsoft.com/en-us/ef/core/
  *https://www.entityframeworktutorial.net/efcore/entity-framework-core.aspx
  *https://learn.microsoft.com/en-us/ef/ef6/fundamentals/relationships
+ *https://uibakery.io/regex-library/password-regex-csharp
  */
 
 //--------Imports--------//
